@@ -1,3 +1,4 @@
+import HeaderSearchButton from "./HeaderSearchButton";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
 
@@ -7,6 +8,9 @@ const Header = () => {
       <div className="flex items-center gap-6">
         <Logo />
         <Navigation />
+      </div>
+      <div>
+        <HeaderSearchButton />
       </div>
     </div>
   );
