@@ -1,3 +1,4 @@
+import HeaderProfile from "./HeaderProfile";
 import HeaderSearchButton from "./HeaderSearchButton";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
@@ -9,7 +10,8 @@ const Header = () => {
         <Logo />
         <Navigation />
       </div>
-      <div>
+      <div className="flex items-center gap-8">
+        <HeaderProfile />
         <HeaderSearchButton />
       </div>
     </div>
