@@ -3,6 +3,8 @@ import "./globals.css";
 import { Metadata } from "next";
 
 import { Inter } from "next/font/google";
+import { Shrikhand } from "next/font/google";
+
 import Header from "./_components/Header";
 import Footer from "./_components/Footer";
 import ScrollButton from "./_components/ScrollButton";
@@ -10,6 +12,11 @@ const inter = Inter({
   display: "swap",
   subsets: ["latin"],
 });
+export const shrikhand=Shrikhand({
+  display:"swap",
+  subsets:['latin'],
+  weight:"400"
+})
 
 export const metadata: Metadata = {
   title: {

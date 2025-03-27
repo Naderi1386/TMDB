@@ -1,10 +1,13 @@
 "use client";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 
 const HeaderInput = () => {
+  const pathname = usePathname();
   const [input, setInput] = useState("");
+  if (pathname === "/about") return null;
   const onSubmit = () => {
     if (input) {
       setInput("");
@@ -31,7 +34,7 @@ const HeaderInput = () => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           type="text"
-          className="outline-none grow text-stone-500"
+          className="outline-none grow text-stone-500 italic"
           placeholder="Search for a movie,tv show..."
         />
       </form>
