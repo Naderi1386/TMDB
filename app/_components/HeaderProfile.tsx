@@ -14,7 +14,7 @@ const HeaderProfile = async () => {
       </Link>
     );
   return (
-    <div className="flex items-center gap-3 mt-2 text-white">
+    <div className="flex items-center gap-3 mt-[2px] text-white">
       <span className="text-sm font-bold">{session.user?.name}</span>
       <Image
         alt={`Avatar-${session.user?.name}`}

@@ -25,7 +25,7 @@ const NavigationItems = ({ title, list }: NavigationItemsPropsType) => {
           {list.map((item, index) => (
             <li
               key={index}
-              className="text-[13px] font-light px-3 py-[6px] transition-all duration-150 hover:bg-gray-300"
+              className="text-[13px] font-light px-3 py-[6px]  transition-all duration-150 hover:bg-gray-300"
             >
               <Link href={item.href}>{item.text}</Link>
             </li>
