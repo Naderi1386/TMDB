@@ -12,7 +12,7 @@ const HeaderInput = () => {
   };
   return (
     <div
-      className={`bg-white border-b border-solid border-stone-300 py-3 px-[10rem] ${
+      className={`bg-white border-b border-solid sticky top-0 border-stone-300 py-3 px-[10rem] ${
         input && "flex items-center justify-between"
       }`}
     >

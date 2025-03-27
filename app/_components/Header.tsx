@@ -17,7 +17,7 @@ const Header = () => {
           <HeaderSearchButton />
         </div>
       </div>
-      <div >
+      <div>
         <HeaderInput />
       </div>
     </header>
