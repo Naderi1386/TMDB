@@ -29,9 +29,7 @@ export default function RootLayout({ children }: RootLayoutPropsType) {
     <html lang="en">
       <body className={`${inter.className} antialiased flex flex-col h-dvh`}>
         <Header />
-        <main className="grow">
-          {children} <div className="h-[100rem]">dd</div>{" "}
-        </main>
+        <main className="grow">{children}</main>
         <Footer />
         <ScrollButton />
       </body>

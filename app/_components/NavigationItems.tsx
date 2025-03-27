@@ -21,7 +21,7 @@ const NavigationItems = ({ title, list }: NavigationItemsPropsType) => {
     >
       <span className="text-sm font-bold">{title}</span>
       {isOpen && (
-        <ul className="bg-white text-black rounded-md  w-[8.5rem] flex flex-col  absolute bottom-[-8rem] border border-solid border-stone-400 overflow-hidden ">
+        <ul className="bg-white text-black rounded-md  w-[8.5rem] flex flex-col  absolute bottom-[-8rem] border border-solid border-stone-400 overflow-hidden z-[1000] ">
           {list.map((item, index) => (
             <li
               key={index}
