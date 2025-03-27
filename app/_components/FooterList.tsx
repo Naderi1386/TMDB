@@ -12,7 +12,7 @@ interface FooterListPropsType {
 
 const FooterList = ({ title, items }: FooterListPropsType) => {
   return (
-    <div className="text-white">
+    <div className="text-white grow">
       <h2 className="font-bold mb-1 uppercase">{title}</h2>
       <ul className="space-y-1">
         {items.map((item, index) => (
