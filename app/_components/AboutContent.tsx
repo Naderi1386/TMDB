@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { shrikhand } from "../layout";
+import AboutList from "./AboutList";
 
 const AboutContent = () => {
   return (
@@ -33,6 +34,7 @@ const AboutContent = () => {
         incredibly proud of. Put simply, we live and breathe community and
         that&apos;s precisely what makes us different.
       </p>
+      <AboutList/>
     </div>
   );
 };
