@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FaChevronLeft } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
 import AboutCommentItems from "./AboutCommentItems";
+import CommentsPagination from "./CommentsPagination";
 
 export interface AboutCommentType {
   text: string;
@@ -45,18 +46,22 @@ const AboutCommentsList = () => {
       setIndex((index) => index - 1);
     }
   };
-  console.log(index);
   return (
-    <div className="w-[1100px] mx-auto flex gap-10">
-      <button className="cursor-pointer" onClick={handlePrevious}>
-        <FaChevronLeft size={28} />{" "}
-      </button>
-      <div className="grow">
-        <AboutCommentItems comment={comments.at(index) as AboutCommentType} />
+    <div className="w-[1100px] mx-auto">
+      <div className="flex gap-10">
+        <button className="cursor-pointer" onClick={handlePrevious}>
+          <FaChevronLeft size={28} />{" "}
+        </button>
+        <div className="grow">
+          <AboutCommentItems comment={comments.at(index) as AboutCommentType} />
+        </div>
+        <button className="cursor-pointer" onClick={handleNext}>
+          <FaChevronRight size={28} />{" "}
+        </button>
       </div>
-      <button className="cursor-pointer" onClick={handleNext}>
-        <FaChevronRight size={28} />{" "}
-      </button>
+      <div className="mt-8">
+        <CommentsPagination setIndex={(num:number)=>setIndex(num)} index={index} />
+      </div>
     </div>
   );
 };
