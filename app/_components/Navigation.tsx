@@ -1,15 +1,14 @@
 import NavigationItems from "./NavigationItems";
-
 const Navigation = () => {
   return (
     <nav className="flex items-center gap-6 text-white">
       <NavigationItems
         title="Movies"
         list={[
-          { text: "Popular", href: "/" },
-          { text: "Now Playing", href: "/" },
-          { text: "Upcoming", href: "/" },
-          { text: "Top Rated", href: "/" },
+          { text: "Popular", href: "/movies?type=popular" },
+          { text: "Now Playing", href: "/movies?type=now_playing" },
+          { text: "Upcoming", href: "/movies?type=upcoming" },
+          { text: "Top Rated", href: "/movies?type=top_rated" },
         ]}
       />
       <NavigationItems

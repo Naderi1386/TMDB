@@ -38,7 +38,7 @@ const AboutContent = () => {
         </p>
         <AboutList />
       </div>
-      <div className="bg-white text-[#333] py-16">
+      <div className="bg-white text-[#333] pt-16 pb-32">
         <AboutCommentsList />
       </div>
     </div>
