@@ -34,7 +34,7 @@ export const getMoviesByType = async (type: string, page: string) => {
     throw new Error("Movies could not be loaded !");
   }
 };
-export const getTotalPages = async (type: string) => {
+export const getMoviesTotalPages = async (type: string) => {
   const url = `https://api.themoviedb.org/3/movie/${type}?language=en-US&page=1`;
   const options = {
     method: "GET",
@@ -51,5 +51,41 @@ export const getTotalPages = async (type: string) => {
   } catch (error) {
     console.error(error);
     throw new Error("Movies could not be loaded !");
+  }
+};
+
+export interface TVShowType {
+  adult: boolean;
+  backdrop_path: string;
+  genre_ids: number[];
+  id: number;
+  origin_country: string[];
+  original_language: string;
+  original_name: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  first_air_date: string;
+  name: string;
+  vote_average: number;
+  vote_count: number;
+}
+
+export const getTVShowsByType = async (type: string, page: string) => {
+  const url = `https://api.themoviedb.org/3/tv/${type}?language=en-US&page=${page}`;
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: "Bearer ${process.env.API_TOKEN as string}",
+    },
+  };
+  try {
+    const request = await fetch(url, options);
+    const response = await request.json();
+    return response.results as TVShowType[];
+  } catch (error) {
+    console.error(error);
+    throw new Error("TV Shows could not be loaded !");
   }
 };

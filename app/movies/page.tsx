@@ -3,7 +3,7 @@ import MoviesList from "../_components/MoviesList";
 import Spinner from "../_components/Spinner";
 import MoviePageTitle from "../_components/MoviePageTitle";
 import MoviesPagination from "../_components/MoviesPagination";
-import { getTotalPages } from "../_lib/services";
+import { getMoviesTotalPages } from "../_lib/services";
 
 interface SearchParamsType {
   type: string;
@@ -25,7 +25,7 @@ const page = async (props: PagePropsType) => {
   const type = (await props.searchParams).type;
   const title = (await props.searchParams).type;
   const page=(await props.searchParams).page || "1"
-  const totalPages=await getTotalPages(type)
+  const totalPages = await getMoviesTotalPages(type);
   const key=`${type}&${page}`
   return (
     <div>
