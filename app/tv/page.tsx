@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import MoviePageTitle from "../_components/MoviePageTitle";
 import Spinner from "../_components/Spinner";
+import TVShowsList from "../_components/TVShowsList";
 
 interface SearchParamsType {
   type: string;
@@ -30,7 +31,9 @@ const page = async (props: PagePropsType) => {
             side bar
           </div>
           <div className="basis-[80%]">
-            <Suspense fallback={<Spinner />} key={key}></Suspense>
+            <Suspense fallback={<Spinner />} key={key}>
+              <TVShowsList page={page} type={type} />
+            </Suspense>
           </div>
         </div>
       </div>

@@ -77,7 +77,7 @@ export const getTVShowsByType = async (type: string, page: string) => {
     method: "GET",
     headers: {
       accept: "application/json",
-      Authorization: "Bearer ${process.env.API_TOKEN as string}",
+      Authorization: `Bearer ${process.env.API_TOKEN as string}`,
     },
   };
   try {

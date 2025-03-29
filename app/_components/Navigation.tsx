@@ -14,10 +14,10 @@ const Navigation = () => {
       <NavigationItems
         title="TV Shows"
         list={[
-          { text: "Popular", href: "/" },
-          { text: "Airing Today", href: "/" },
-          { text: "On TV", href: "/" },
-          { text: "Top Rated", href: "/" },
+          { text: "Popular", href: "/tv?type=popular" },
+          { text: "Airing Today", href: "/tv?type=airing_today" },
+          { text: "On TV", href: "/tv?type=on_the_air" },
+          { text: "Top Rated", href: "/tv?type=top_rated" },
         ]}
       />
     </nav>
