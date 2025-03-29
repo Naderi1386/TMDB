@@ -9,10 +9,16 @@ interface SearchParamsType {
 interface PagePropsType {
   searchParams: Promise<SearchParamsType>;
 }
+export async function generateMetadata(props: PagePropsType) {
+  const type = (await props.searchParams).type.replace("_"," ").toLocaleUpperCase();
+  return {
+    title:`${type} Movies`
+  }
+}
 
 const page = async (props: PagePropsType) => {
-  const type =(await props.searchParams).type;
-  const title =(await props.searchParams).type;
+  const type = (await props.searchParams).type;
+  const title = (await props.searchParams).type;
 
   return (
     <div>
@@ -21,7 +27,7 @@ const page = async (props: PagePropsType) => {
         <div className="flex gap-10">
           <div className="bg-red-500 basis-[20%]">s</div>
           <div className="basis-[80%]">
-            <Suspense fallback={<Spinner />}>
+            <Suspense fallback={<Spinner />} key={type}>
               <MoviesList type={type} />
             </Suspense>
           </div>

@@ -33,7 +33,7 @@ const MoviesItem = ({ movie }: MoviesItemPropsType) => {
           {title}
         </Link>
         <span className="text-sm text-stone-400 block">{date}</span>
-        <span className="text-xs font-bold">{vote_average} ⭐</span>
+        <span className="text-xs font-bold">{vote_average.toFixed(1)} ⭐</span>
       </div>
     </li>
   );
