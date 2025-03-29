@@ -2,6 +2,8 @@ import { Suspense } from "react";
 import MoviePageTitle from "../_components/MoviePageTitle";
 import Spinner from "../_components/Spinner";
 import TVShowsList from "../_components/TVShowsList";
+import MoviesPagination from "../_components/MoviesPagination";
+import { getTVShowsTotalPages } from "../_lib/services";
 
 interface SearchParamsType {
   type: string;
@@ -21,6 +23,7 @@ export async function generateMetadata(props: PagePropsType) {
 const page = async (props: PagePropsType) => {
   const type = await (await props.searchParams).type;
   const page = (await (await props.searchParams).page) || "1";
+  const totalPages = await getTVShowsTotalPages(type);
   const key = `${type}&${page}`;
   return (
     <div>
@@ -33,6 +36,7 @@ const page = async (props: PagePropsType) => {
           <div className="basis-[80%]">
             <Suspense fallback={<Spinner />} key={key}>
               <TVShowsList page={page} type={type} />
+              <MoviesPagination totalPages={totalPages} />
             </Suspense>
           </div>
         </div>
