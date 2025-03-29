@@ -2,26 +2,26 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { GrPrevious } from "react-icons/gr";
 import { GrNext } from "react-icons/gr";
-
-const MoviesPagination = () => {
+interface MoviesPaginationPropsType {
+  totalPages: number;
+}
+const MoviesPagination = ({ totalPages }: MoviesPaginationPropsType) => {
   const searchParams = useSearchParams();
   const page = searchParams.get("page") || "1";
-  const type = searchParams.get("type") as string;
   const { replace } = useRouter();
   const pathname = usePathname();
   const handleNextPage = () => {
     const params = new URLSearchParams(searchParams);
     params.set("page", String(Number(page) + 1));
-    replace(`${pathname}?${params.toString()}`, { scroll: false });
+    replace(`${pathname}?${params.toString()}`, { scroll: true });
   };
   const handlePreviousPage = () => {
     const params = new URLSearchParams(searchParams);
     params.set("page", String(Number(page) - 1));
     replace(`${pathname}?${params.toString()}`, {
-      scroll: false,
+      scroll: true,
     });
   };
-
   return (
     <div className="flex justify-center items-center gap-8 mt-14">
       {page !== "1" && (
@@ -30,12 +30,14 @@ const MoviesPagination = () => {
         </button>
       )}
 
-      <div className="bg-blue-950 rounded-[100%] text-white text-xl font-bold w-[2rem] h-[2rem] flex justify-center items-center ">
+      <div className="bg-blue-950 rounded-[100%] text-white text-xl font-bold px-3 h-[2rem] flex justify-center items-center ">
         {page}
       </div>
-      <button className="cursor-pointer" onClick={handleNextPage}>
-        <GrNext size={25} />
-      </button>
+      {Number(page) < totalPages && (
+        <button className="cursor-pointer" onClick={handleNextPage}>
+          <GrNext size={25} />
+        </button>
+      )}
     </div>
   );
 };
