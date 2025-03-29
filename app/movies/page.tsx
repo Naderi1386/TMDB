@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import MoviesList from "../_components/MoviesList";
 import Spinner from "../_components/Spinner";
 import MoviePageTitle from "../_components/MoviePageTitle";
+import MoviesPagination from "../_components/MoviesPagination";
 
 interface SearchParamsType {
   type: string;
@@ -10,10 +11,12 @@ interface PagePropsType {
   searchParams: Promise<SearchParamsType>;
 }
 export async function generateMetadata(props: PagePropsType) {
-  const type = (await props.searchParams).type.replace("_"," ").toLocaleUpperCase();
+  const type = (await props.searchParams).type
+    .replace("_", " ")
+    .toLocaleUpperCase();
   return {
-    title:`${type} Movies`
-  }
+    title: `${type} Movies`,
+  };
 }
 
 const page = async (props: PagePropsType) => {
@@ -29,6 +32,7 @@ const page = async (props: PagePropsType) => {
           <div className="basis-[80%]">
             <Suspense fallback={<Spinner />} key={type}>
               <MoviesList type={type} />
+              <MoviesPagination />
             </Suspense>
           </div>
         </div>
