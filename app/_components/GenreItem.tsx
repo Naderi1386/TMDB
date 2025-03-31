@@ -7,15 +7,15 @@ interface GenreItemPropsType {
   genre: GenreType;
 }
 const GenreItem = ({ genre }: GenreItemPropsType) => {
-  const { name } = genre;
+  const { name,id } = genre;
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
 
   const handleClick = () => {
     const params = new URLSearchParams(searchParams);
-    params.set("genre", name);
-    replace(`${pathname}?${params.toString()}`,{scroll:true});
+    params.set("genre", id);
+    replace(`${pathname}?${params.toString()}`, { scroll: true });
   };
   return (
     <li

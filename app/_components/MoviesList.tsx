@@ -3,14 +3,23 @@ import MoviesItem from "./MoviesItem";
 
 interface MoviesListPropsType {
   type: string;
-  page:string
+  page: string;
+  genre: string;
 }
 
-const MoviesList = async ({ type,page }: MoviesListPropsType) => {
-  const movies = await getMoviesByType(type,page);
-  return <ul className="flex flex-wrap justify-between items-stretch gap-6">
-    {movies.map((movie)=><MoviesItem movie={movie} key={movie.id} />)}
-  </ul>;
+const MoviesList = async ({ type, page, genre }: MoviesListPropsType) => {
+  const movieItems = await getMoviesByType(type, page);
+  const isGenre = genre !== "";
+  const movies = isGenre
+    ? movieItems.filter((movie) => movie.genre_ids.includes(Number(genre)))
+    : movieItems;
+  return (
+    <ul className="flex flex-wrap justify-between items-stretch gap-6">
+      {movies.map((movie) => (
+        <MoviesItem movie={movie} key={movie.id} />
+      ))}
+    </ul>
+  );
 };
 
 export default MoviesList;
