@@ -9,6 +9,7 @@ import Filter from "../_components/Filter";
 interface SearchParamsType {
   type: string;
   page?: string;
+  genre?:string
 }
 interface PagePropsType {
   searchParams: Promise<SearchParamsType>;
@@ -24,6 +25,7 @@ export async function generateMetadata(props: PagePropsType) {
 const page = async (props: PagePropsType) => {
   const type = await (await props.searchParams).type;
   const page = (await (await props.searchParams).page) || "1";
+  const genre=(await props.searchParams).genre || "" 
   const totalPages = await getTVShowsTotalPages(type);
   const genres = await getTVShowsGenres();
   const key = `${type}&${page}`;
@@ -37,7 +39,7 @@ const page = async (props: PagePropsType) => {
           </div>
           <div className="basis-[80%]">
             <Suspense fallback={<Spinner />} key={key}>
-              <TVShowsList page={page} type={type} />
+              <TVShowsList genre={genre} page={page} type={type} />
               <MoviesPagination totalPages={totalPages} />
             </Suspense>
           </div>
