@@ -132,3 +132,24 @@ export const getMoviesGenres = async () => {
     throw new Error("Genres could not be loaded !");
   }
 };
+
+export const getTVShowsGenres = async () => {
+  const url = "https://api.themoviedb.org/3/genre/tv/list?language=en";
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${process.env.API_TOKEN as string}`,
+    },
+  };  
+  try {
+    const request=await fetch(url, options)
+    const response=await request.json()
+    return response.genres as GenreType[];
+  } catch (error) {
+    console.error(error);
+    throw new Error("Genres could not be loaded !");
+  }
+  
+    
+};

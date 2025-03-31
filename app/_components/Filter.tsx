@@ -12,7 +12,11 @@ const Filter = ({ filterItems }: FilterPropsType) => {
   const [isShowFilter, setIsShowFilter] = useState(true);
   return (
     <div className="w-full border border-solid border-stone-300 rounded-md ">
-      <div className="flex items-center justify-between border-b border-solid border-stone-300 px-4 py-3 ">
+      <div
+        className={`flex items-center justify-between ${
+          isShowFilter && "border-b border-solid border-stone-300"
+        } px-4 py-3 `}
+      >
         <h4 className="font-bold">Filters</h4>
         <button
           onClick={() => setIsShowFilter((isShow) => !isShow)}
@@ -26,7 +30,7 @@ const Filter = ({ filterItems }: FilterPropsType) => {
         </button>
       </div>
       {isShowFilter && (
-        <div className="px-4 py-3 mt-8">
+        <div className="px-4 py-3 mt-2">
           <h3 className="font-light mb-4">Genres</h3>
           <ul className="flex items-center gap-2 flex-wrap">
             {filterItems.map((genre) => (
