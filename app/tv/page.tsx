@@ -3,7 +3,8 @@ import MoviePageTitle from "../_components/MoviePageTitle";
 import Spinner from "../_components/Spinner";
 import TVShowsList from "../_components/TVShowsList";
 import MoviesPagination from "../_components/MoviesPagination";
-import { getTVShowsTotalPages } from "../_lib/services";
+import { getTVShowsGenres, getTVShowsTotalPages } from "../_lib/services";
+import Filter from "../_components/Filter";
 
 interface SearchParamsType {
   type: string;
@@ -24,6 +25,7 @@ const page = async (props: PagePropsType) => {
   const type = await (await props.searchParams).type;
   const page = (await (await props.searchParams).page) || "1";
   const totalPages = await getTVShowsTotalPages(type);
+  const genres = await getTVShowsGenres();
   const key = `${type}&${page}`;
   return (
     <div>
@@ -31,7 +33,7 @@ const page = async (props: PagePropsType) => {
         <MoviePageTitle topic="TV Shows" title={type} />
         <div className="flex gap-10 items-start">
           <div className=" basis-[20%] border border-solid border-stone-300 rounded-md">
-            side bar
+            <Filter filterItems={genres} />
           </div>
           <div className="basis-[80%]">
             <Suspense fallback={<Spinner />} key={key}>
