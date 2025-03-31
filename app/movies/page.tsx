@@ -2,7 +2,6 @@ import { Suspense } from "react";
 import MoviesList from "../_components/MoviesList";
 import Spinner from "../_components/Spinner";
 import MoviePageTitle from "../_components/MoviePageTitle";
-import MoviesPagination from "../_components/MoviesPagination";
 import { getMoviesGenres, getMoviesTotalPages } from "../_lib/services";
 import Filter from "../_components/Filter";
 
@@ -40,8 +39,7 @@ const page = async (props: PagePropsType) => {
           </div>
           <div className="basis-[80%]">
             <Suspense fallback={<Spinner />} key={key}>
-              <MoviesList genre={genre} type={type} page={page} />
-              <MoviesPagination totalPages={totalPages} />
+              <MoviesList totalPages={totalPages} genre={genre} type={type} page={page} />
             </Suspense>
           </div>
         </div>
