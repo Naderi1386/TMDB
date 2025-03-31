@@ -3,7 +3,8 @@ import MoviesList from "../_components/MoviesList";
 import Spinner from "../_components/Spinner";
 import MoviePageTitle from "../_components/MoviePageTitle";
 import MoviesPagination from "../_components/MoviesPagination";
-import { getMoviesTotalPages } from "../_lib/services";
+import { getMoviesGenres, getMoviesTotalPages } from "../_lib/services";
+import Filter from "../_components/Filter";
 
 interface SearchParamsType {
   type: string;
@@ -23,17 +24,17 @@ export async function generateMetadata(props: PagePropsType) {
 
 const page = async (props: PagePropsType) => {
   const type = (await props.searchParams).type;
-  const title = (await props.searchParams).type;
   const page = (await props.searchParams).page || "1";
   const totalPages = await getMoviesTotalPages(type);
+  const genres = await getMoviesGenres();
   const key = `${type}&${page}`;
   return (
     <div>
       <div className="px-[10rem] pb-16">
-        <MoviePageTitle title={title} topic="Movies" />
+        <MoviePageTitle title={type} topic="Movies" />
         <div className="flex gap-10 items-start">
-          <div className=" basis-[20%] border border-solid border-stone-300 rounded-md">
-            side bar
+          <div className=" basis-[20%] ">
+            <Filter filterItems={genres} />
           </div>
           <div className="basis-[80%]">
             <Suspense fallback={<Spinner />} key={key}>

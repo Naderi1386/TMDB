@@ -90,21 +90,45 @@ export const getTVShowsByType = async (type: string, page: string) => {
   }
 };
 
-export const getTVShowsTotalPages = async (type:string) => {
- const url = `https://api.themoviedb.org/3/tv/${type}?language=en-US&page=1`;
- const options = {
-   method: "GET",
-   headers: {
-     accept: "application/json",
-     Authorization: `Bearer ${process.env.API_TOKEN as string}`,
-   },
- };
- try {
-   const request = await fetch(url, options);
-   const response = await request.json();
-   return response.total_pages as number;
- } catch (error) {
-   console.error(error);
-   throw new Error("TV Shows could not be loaded !");
- }
+export const getTVShowsTotalPages = async (type: string) => {
+  const url = `https://api.themoviedb.org/3/tv/${type}?language=en-US&page=1`;
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${process.env.API_TOKEN as string}`,
+    },
+  };
+  try {
+    const request = await fetch(url, options);
+    const response = await request.json();
+    return response.total_pages as number;
+  } catch (error) {
+    console.error(error);
+    throw new Error("TV Shows could not be loaded !");
+  }
+};
+
+export interface GenreType {
+  id: number;
+  name: string;
+}
+
+export const getMoviesGenres = async () => {
+  const url = "https://api.themoviedb.org/3/genre/movie/list?language=en";
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${process.env.API_TOKEN as string}`,
+    },
+  };
+  try {
+    const request = await fetch(url, options);
+    const response = await request.json();
+    return response.genres as GenreType[];
+  } catch (error) {
+    console.error(error);
+    throw new Error("Genres could not be loaded !");
+  }
 };
