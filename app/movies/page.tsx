@@ -4,6 +4,7 @@ import Spinner from "../_components/Spinner";
 import MoviePageTitle from "../_components/MoviePageTitle";
 import { getMoviesGenres, getMoviesTotalPages } from "../_lib/services";
 import Filter from "../_components/Filter";
+import Languages from "../_components/Languages";
 
 interface SearchParamsType {
   type: string;
@@ -35,7 +36,9 @@ const page = async (props: PagePropsType) => {
         <MoviePageTitle title={type} topic="Movies" />
         <div className="flex gap-10 items-start">
           <div className=" basis-[20%] ">
-            <Filter filterItems={genres} />
+            <Filter filterItems={genres} >
+              <Languages/>
+            </Filter>
           </div>
           <div className="basis-[80%]">
             <Suspense fallback={<Spinner />} key={key}>

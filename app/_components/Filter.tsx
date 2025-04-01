@@ -1,14 +1,16 @@
 "use client";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { FaAngleRight } from "react-icons/fa6";
 import { FaAngleDown } from "react-icons/fa6";
+import { FaQuestionCircle } from "react-icons/fa";
 import { GenreType } from "../_lib/services";
 import GenreItem from "./GenreItem";
 
 interface FilterPropsType {
   filterItems: GenreType[];
+  children:ReactNode
 }
-const Filter = ({ filterItems }: FilterPropsType) => {
+const Filter = ({ filterItems, children }: FilterPropsType) => {
   const [isShowFilter, setIsShowFilter] = useState(true);
   return (
     <div className="w-full border border-solid border-stone-300 rounded-md ">
@@ -30,14 +32,25 @@ const Filter = ({ filterItems }: FilterPropsType) => {
         </button>
       </div>
       {isShowFilter && (
-        <div className="px-4 py-3 mt-2">
-          <h3 className="font-light mb-4">Genres</h3>
-          <ul className="flex items-center gap-2 flex-wrap">
-            {filterItems.map((genre) => (
-              <GenreItem genre={genre} key={genre.id} />
-            ))}
-          </ul>
-        </div>
+        <>
+          <div className="px-4 py-3 mt-2">
+            <h3 className="font-light mb-4">Genres</h3>
+            <ul className="flex items-center gap-2 flex-wrap">
+              {filterItems.map((genre) => (
+                <GenreItem genre={genre} key={genre.id} />
+              ))}
+            </ul>
+          </div>
+          <div className="border-t border-solid border-stone-300 py-3 px-4 mt-3">
+            <div className="flex items-start gap-3  ">
+              <h3 className="font-light mb-4">Language</h3>
+              <span className="block py-[6px]">
+                <FaQuestionCircle size={12} color="gray" />
+              </span>
+            </div>
+            {children}
+          </div>
+        </>
       )}
     </div>
   );

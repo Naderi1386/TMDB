@@ -5,6 +5,7 @@ import TVShowsList from "../_components/TVShowsList";
 
 import { getTVShowsGenres, getTVShowsTotalPages } from "../_lib/services";
 import Filter from "../_components/Filter";
+import Languages from "../_components/Languages";
 
 interface SearchParamsType {
   type: string;
@@ -35,7 +36,9 @@ const page = async (props: PagePropsType) => {
         <MoviePageTitle topic="TV Shows" title={type} />
         <div className="flex gap-10 items-start">
           <div className=" basis-[20%] border border-solid border-stone-300 rounded-md">
-            <Filter filterItems={genres} />
+            <Filter filterItems={genres}>
+              <Languages />
+            </Filter>
           </div>
           <div className="basis-[80%]">
             <Suspense fallback={<Spinner />} key={key}>
