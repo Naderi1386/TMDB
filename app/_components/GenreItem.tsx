@@ -14,7 +14,7 @@ const GenreItem = ({ genre }: GenreItemPropsType) => {
 
   const handleClick = () => {
     const params = new URLSearchParams(searchParams);
-    params.set("genre", id);
+    params.set("genre", String(id));
     replace(`${pathname}?${params.toString()}`, { scroll: true });
   };
   return (

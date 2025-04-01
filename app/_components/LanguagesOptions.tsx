@@ -1,15 +1,29 @@
 "use client";
 import { useState } from "react";
 import { LanguageType } from "../_lib/services";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 interface LanguagesOptionsPropsType {
   languages: LanguageType[];
 }
 const LanguagesOptions = ({ languages }: LanguagesOptionsPropsType) => {
   const [language, setLanguage] = useState("");
-  const handleClick=()=>{
 
-  }
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
+  const handleClick = () => {
+    const params = new URLSearchParams(searchParams);
+    if (language === "") {
+      params.delete("lan");
+      replace(`${pathname}?${params.toString()}`, { scroll: true });
+      setLanguage("");
+    } else {
+      params.set("lan", language);
+      replace(`${pathname}?${params.toString()}`, { scroll: true });
+      setLanguage("");
+    }
+  };
 
   return (
     <div>
