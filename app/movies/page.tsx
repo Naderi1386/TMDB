@@ -10,6 +10,7 @@ interface SearchParamsType {
   type: string;
   page?: string;
   genre?: string;
+  lan?: string;
 }
 interface PagePropsType {
   searchParams: Promise<SearchParamsType>;
@@ -27,22 +28,30 @@ const page = async (props: PagePropsType) => {
   const type = (await props.searchParams).type;
   const page = (await props.searchParams).page || "1";
   const genre = (await props.searchParams).genre || "";
+  const lan = (await props.searchParams).lan || "";
   const totalPages = await getMoviesTotalPages(type);
   const genres = await getMoviesGenres();
   const key = `${type}&${page}`;
+
   return (
     <div>
       <div className="px-[10rem] pb-16">
         <MoviePageTitle title={type} topic="Movies" />
         <div className="flex gap-10 items-start">
           <div className=" basis-[20%] ">
-            <Filter filterItems={genres} >
-              <Languages/>
+            <Filter filterItems={genres}>
+              <Languages />
             </Filter>
           </div>
           <div className="basis-[80%]">
             <Suspense fallback={<Spinner />} key={key}>
-              <MoviesList totalPages={totalPages} genre={genre} type={type} page={page} />
+              <MoviesList
+                totalPages={totalPages}
+                genre={genre}
+                type={type}
+                page={page}
+                lan={lan}
+              />
             </Suspense>
           </div>
         </div>

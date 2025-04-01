@@ -8,6 +8,7 @@ interface MoviesListPropsType {
   page: string;
   genre: string;
   totalPages: number;
+  lan: string;
 }
 
 const MoviesList = async ({
@@ -15,12 +16,19 @@ const MoviesList = async ({
   page,
   genre,
   totalPages,
+  lan,
 }: MoviesListPropsType) => {
   const movieItems = await getMoviesByType(type, page);
   const isGenre = genre !== "";
-  const movies = isGenre
-    ? movieItems.filter((movie) => movie.genre_ids.includes(Number(genre)))
+  const isLan = lan !== "";
+  const moviesByLanguage = isLan
+    ? movieItems.filter((movie) => movie.original_language === lan)
     : movieItems;
+  const movies = isGenre
+    ? moviesByLanguage.filter((movie) =>
+        movie.genre_ids.includes(Number(genre))
+      )
+    : moviesByLanguage;
   if (movies.length === 0) return <EmptyContent>No Movies ):</EmptyContent>;
   return (
     <>
