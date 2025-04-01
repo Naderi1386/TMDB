@@ -2,10 +2,12 @@ import { Suspense } from "react";
 import MoviePageTitle from "../_components/MoviePageTitle";
 import Spinner from "../_components/Spinner";
 import TVShowsList from "../_components/TVShowsList";
-
 import { getTVShowsGenres, getTVShowsTotalPages } from "../_lib/services";
 import Filter from "../_components/Filter";
 import Languages from "../_components/Languages";
+
+// We Don't Need This App Is Dynamic
+// export const revalidate = 3600;
 
 interface SearchParamsType {
   type: string;

@@ -10,19 +10,20 @@ const LanguagesOptions = ({ languages }: LanguagesOptionsPropsType) => {
   const [language, setLanguage] = useState("");
 
   const searchParams = useSearchParams();
+  const lan = searchParams.get("lan") || "";
   const pathname = usePathname();
   const { replace } = useRouter();
   const handleClick = () => {
     const params = new URLSearchParams(searchParams);
-    if (language === "") {
-      params.delete("lan");
-      replace(`${pathname}?${params.toString()}`, { scroll: true });
-      setLanguage("");
-    } else {
-      params.set("lan", language);
-      replace(`${pathname}?${params.toString()}`, { scroll: true });
-      setLanguage("");
-    }
+
+    params.set("lan", language);
+    replace(`${pathname}?${params.toString()}`, { scroll: true });
+  };
+  const handleRemove = () => {
+    const params = new URLSearchParams(searchParams);
+    params.delete("lan");
+    replace(`${pathname}?${params.toString()}`, { scroll: true });
+    setLanguage("");
   };
 
   return (
@@ -42,13 +43,21 @@ const LanguagesOptions = ({ languages }: LanguagesOptionsPropsType) => {
           </option>
         ))}
       </select>
-      <div className="flex justify-start items-center">
+      <div className="flex justify-start gap-3 items-center">
         <button
           onClick={handleClick}
           className="rounded-md border border-solid border-stone-950 text-black cursor-pointer  px-3 text-[14px] transition-all duration-150 hover:bg-black hover:text-white"
         >
           set
         </button>
+        {lan && (
+          <button
+            onClick={handleRemove}
+            className="rounded-md border border-solid border-stone-950 text-black cursor-pointer  px-3 text-[14px] transition-all duration-150 hover:bg-black hover:text-white"
+          >
+            Remove
+          </button>
+        )}
       </div>
     </div>
   );

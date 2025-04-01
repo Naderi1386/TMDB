@@ -6,6 +6,9 @@ import { getMoviesGenres, getMoviesTotalPages } from "../_lib/services";
 import Filter from "../_components/Filter";
 import Languages from "../_components/Languages";
 
+// We Don't Need This App Is Dynamic
+// export const revalidate = 3600;
+
 interface SearchParamsType {
   type: string;
   page?: string;
