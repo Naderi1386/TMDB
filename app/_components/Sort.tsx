@@ -8,10 +8,13 @@ const Sort = () => {
   const [isShowSort, setIsShowSort] = useState(false);
  
   return (
-    <div className="w-full  rounded-md border border-stone-300 border-solid mb-4">
+    <div
+      style={{ boxShadow: "0 2px 8px rgba(0, 0, 0, .1)" }}
+      className="w-full  rounded-md border border-stone-200 border-solid mb-4"
+    >
       <div
         className={`flex items-center justify-between 
-          ${isShowSort && " border-b border-solid border-stone-300"}
+          ${isShowSort && " border-b border-solid border-stone-200"}
          px-4 py-3`}
       >
         <h4 className="font-bold">Sort</h4>

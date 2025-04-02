@@ -13,10 +13,13 @@ interface FilterPropsType {
 const Filter = ({ filterItems, children }: FilterPropsType) => {
   const [isShowFilter, setIsShowFilter] = useState(true);
   return (
-    <div className={`w-full  rounded-md border border-stone-300 border-solid `}>
+    <div
+      style={{ boxShadow: "0 2px 8px rgba(0, 0, 0, .1)" }}
+      className={`w-full  rounded-md border border-stone-200 border-solid `}
+    >
       <div
         className={`flex items-center justify-between ${
-          isShowFilter && "border-b border-solid border-stone-300"
+          isShowFilter && "border-b border-solid border-stone-200"
         } px-4 py-3 `}
       >
         <h4 className="font-bold">Filters</h4>
@@ -41,7 +44,7 @@ const Filter = ({ filterItems, children }: FilterPropsType) => {
               ))}
             </ul>
           </div>
-          <div className="border-t border-solid border-stone-300 py-3 px-4 mt-3">
+          <div className="border-t border-solid border-stone-200 py-3 px-4 mt-3">
             <div className="flex items-start gap-3  ">
               <h3 className="font-light mb-4 text-sm">Language</h3>
               <span className="block py-[5px]">
