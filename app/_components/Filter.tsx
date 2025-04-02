@@ -5,15 +5,22 @@ import { FaAngleDown } from "react-icons/fa6";
 import { FaQuestionCircle } from "react-icons/fa";
 import { GenreType } from "../_lib/services";
 import GenreItem from "./GenreItem";
+import { usePathname } from "next/navigation";
 
 interface FilterPropsType {
   filterItems: GenreType[];
-  children:ReactNode
+  children: ReactNode;
 }
 const Filter = ({ filterItems, children }: FilterPropsType) => {
   const [isShowFilter, setIsShowFilter] = useState(true);
+  const pathname = usePathname();
+  const isShowsPage = pathname === "/tv";
   return (
-    <div className="w-full  rounded-md ">
+    <div
+      className={`w-full  rounded-md  ${
+        !isShowsPage && "border border-stone-300 border-solid"
+      } `}
+    >
       <div
         className={`flex items-center justify-between ${
           isShowFilter && "border-b border-solid border-stone-300"
