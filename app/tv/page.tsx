@@ -13,6 +13,7 @@ interface SearchParamsType {
   type: string;
   page?: string;
   genre?: string;
+  lan?: string;
 }
 interface PagePropsType {
   searchParams: Promise<SearchParamsType>;
@@ -29,6 +30,7 @@ const page = async (props: PagePropsType) => {
   const type = await (await props.searchParams).type;
   const page = (await (await props.searchParams).page) || "1";
   const genre = (await props.searchParams).genre || "";
+  const lan = (await props.searchParams).lan || "";
   const totalPages = await getTVShowsTotalPages(type);
   const genres = await getTVShowsGenres();
   const key = `${type}&${page}`;
@@ -45,6 +47,7 @@ const page = async (props: PagePropsType) => {
           <div className="basis-[80%]">
             <Suspense fallback={<Spinner />} key={key}>
               <TVShowsList
+                lan={lan}
                 totalPages={totalPages}
                 genre={genre}
                 page={page}

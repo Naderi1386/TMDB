@@ -7,12 +7,15 @@ interface MoviesItemPropsType {
   movie: MovieType;
 }
 const MoviesItem = ({ movie }: MoviesItemPropsType) => {
-  const { title, poster_path,release_date,vote_average,id } = movie;
+  const { title, poster_path, release_date, vote_average, id } = movie;
   const src = `https://image.tmdb.org/t/p/w500${poster_path}`;
   const date = formatDate(release_date);
 
   return (
-    <li className="basis-[17.5%] rounded-md border border-solid border-stone-300 overflow-hidden ">
+    <li
+      title={title}
+      className="basis-[17.5%] rounded-md border border-solid border-stone-300 overflow-hidden "
+    >
       <Link href={`movies/${id}`}>
         <div className="w-full relative h-[250px] border-b border-solid border-stone-300   rounded-t-md cursor-pointer">
           <Image

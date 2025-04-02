@@ -13,7 +13,7 @@ interface FilterPropsType {
 const Filter = ({ filterItems, children }: FilterPropsType) => {
   const [isShowFilter, setIsShowFilter] = useState(true);
   return (
-    <div className="w-full border border-solid border-stone-300 rounded-md ">
+    <div className="w-full  rounded-md ">
       <div
         className={`flex items-center justify-between ${
           isShowFilter && "border-b border-solid border-stone-300"

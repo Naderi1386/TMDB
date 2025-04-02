@@ -7,6 +7,7 @@ interface TVShowsListPropsType {
   page: string;
   type: string;
   genre: string;
+  lan: string;
   totalPages: number;
 }
 const TVShowsList = async ({
@@ -14,12 +15,17 @@ const TVShowsList = async ({
   type,
   genre,
   totalPages,
+  lan,
 }: TVShowsListPropsType) => {
   const showItems = await getTVShowsByType(type, page);
   const isGenre = genre !== "";
-  const shows = isGenre
-    ? showItems.filter((show) => show.genre_ids.includes(Number(genre)))
+  const isLan = lan !== "";
+  const showsByLanguage = isLan
+    ? showItems.filter((show) => show.original_language === lan)
     : showItems;
+  const shows = isGenre
+    ? showsByLanguage.filter((show) => show.genre_ids.includes(Number(genre)))
+    : showsByLanguage;
   if (shows.length === 0) return <EmptyContent>No TV Shows ):</EmptyContent>;
   return (
     <>
