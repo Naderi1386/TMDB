@@ -39,12 +39,12 @@ const AboutCommentsList = () => {
   const handleNext = () => {
     if (index < comments.length - 1) {
       setIndex((index) => index + 1);
-    }
+    } else setIndex(0);
   };
   const handlePrevious = () => {
     if (index > 0) {
       setIndex((index) => index - 1);
-    }
+    } else setIndex(comments.length - 1);
   };
   return (
     <div className="w-[1100px] mx-auto">
@@ -60,7 +60,10 @@ const AboutCommentsList = () => {
         </button>
       </div>
       <div className="mt-8">
-        <CommentsPagination setIndex={(num:number)=>setIndex(num)} index={index} />
+        <CommentsPagination
+          setIndex={(num: number) => setIndex(num)}
+          index={index}
+        />
       </div>
     </div>
   );
