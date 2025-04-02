@@ -41,7 +41,7 @@ const Filter = ({ filterItems, children }: FilterPropsType) => {
       {isShowFilter && (
         <>
           <div className="px-4 py-3 mt-2">
-            <h3 className="font-light mb-4">Genres</h3>
+            <h3 className="font-light mb-4 text-sm">Genres</h3>
             <ul className="flex items-center gap-2 flex-wrap">
               {filterItems.map((genre) => (
                 <GenreItem genre={genre} key={genre.id} />
@@ -50,8 +50,8 @@ const Filter = ({ filterItems, children }: FilterPropsType) => {
           </div>
           <div className="border-t border-solid border-stone-300 py-3 px-4 mt-3">
             <div className="flex items-start gap-3  ">
-              <h3 className="font-light mb-4">Language</h3>
-              <span className="block py-[6px]">
+              <h3 className="font-light mb-4 text-sm">Language</h3>
+              <span className="block py-[5px]">
                 <FaQuestionCircle size={12} color="gray" />
               </span>
             </div>

@@ -5,6 +5,7 @@ import MoviePageTitle from "../_components/MoviePageTitle";
 import { getMoviesGenres, getMoviesTotalPages } from "../_lib/services";
 import Filter from "../_components/Filter";
 import Languages from "../_components/Languages";
+import Sort from "../_components/Sort";
 
 // We Don't Need This App Is Dynamic
 // export const revalidate = 3600;
@@ -42,6 +43,7 @@ const page = async (props: PagePropsType) => {
         <MoviePageTitle title={type} topic="Movies" />
         <div className="flex gap-10 items-start">
           <div className=" basis-[20%] ">
+            <Sort />
             <Filter filterItems={genres}>
               <Languages />
             </Filter>
