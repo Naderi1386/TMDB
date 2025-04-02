@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { FaAngleDown, FaAngleRight } from "react-icons/fa";
+import { FaAngleDown, FaAngleRight } from "react-icons/fa6";
 import SortOptions from "./SortOptions";
 
 const Sort = () => {
   const [isShowSort, setIsShowSort] = useState(false);
+ 
   return (
     <div className="w-full  rounded-md border border-stone-300 border-solid mb-4">
       <div
