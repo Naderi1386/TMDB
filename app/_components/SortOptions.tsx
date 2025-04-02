@@ -14,7 +14,7 @@ const sortItems: SortItemsType[] = [
 const SortOptions = () => {
   const [sort, setSort] = useState(sortItems.at(0)?.value as string);
   const searchParams = useSearchParams();
-  const sortValue=searchParams.get("sort") as string
+  const sortValue = searchParams.get("sort") as string;
   const pathname = usePathname();
   const { replace } = useRouter();
   const handleClick = () => {
@@ -22,11 +22,12 @@ const SortOptions = () => {
     params.set("sort", sort);
     replace(`${pathname}?${params.toString()}`, { scroll: true });
   };
-  const handleRemoveClick=()=>{
+  const handleRemoveClick = () => {
     const params = new URLSearchParams(searchParams);
     params.delete("sort");
     replace(`${pathname}?${params.toString()}`, { scroll: true });
-  }
+  };
+
   return (
     <div>
       <select
