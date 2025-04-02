@@ -24,6 +24,7 @@ const NavigationItems = ({ title, list }: NavigationItemsPropsType) => {
         <ul className="bg-white text-black rounded-md  w-[8.5rem] flex flex-col  absolute bottom-[-8rem] border border-solid border-stone-400 overflow-hidden z-[1000] ">
           {list.map((item, index) => (
             <li
+              onClick={() => setIsOpen(false)}
               key={index}
               className="text-[13px] font-light px-3 py-[6px]  transition-all duration-150 hover:bg-gray-300"
             >
