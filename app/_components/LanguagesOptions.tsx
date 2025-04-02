@@ -46,14 +46,14 @@ const LanguagesOptions = ({ languages }: LanguagesOptionsPropsType) => {
       <div className="flex justify-start gap-3 items-center">
         <button
           onClick={handleClick}
-          className="rounded-md border border-solid border-stone-950 text-black cursor-pointer  px-3 text-[14px] transition-all duration-150 hover:bg-black hover:text-white"
+            className="rounded-md bg-white border border-solid border-blue-950 text-black cursor-pointer  px-3 text-[14px] transition-all duration-150 hover:bg-blue-950 hover:text-white"
         >
           set
         </button>
         {lan && (
           <button
             onClick={handleRemove}
-            className="rounded-md border border-solid border-stone-950 text-black cursor-pointer  px-3 text-[14px] transition-all duration-150 hover:bg-black hover:text-white"
+            className="rounded-md bg-white border border-solid border-blue-950 text-black cursor-pointer  px-3 text-[14px] transition-all duration-150 hover:bg-blue-950 hover:text-white"
           >
             Remove
           </button>
