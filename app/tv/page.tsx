@@ -5,6 +5,7 @@ import TVShowsList from "../_components/TVShowsList";
 import { getTVShowsGenres, getTVShowsTotalPages } from "../_lib/services";
 import Filter from "../_components/Filter";
 import Languages from "../_components/Languages";
+import Sort from "../_components/Sort";
 
 // We Don't Need This App Is Dynamic
 // export const revalidate = 3600;
@@ -39,7 +40,8 @@ const page = async (props: PagePropsType) => {
       <div className="px-[10rem] pb-16">
         <MoviePageTitle topic="TV Shows" title={type} />
         <div className="flex gap-10 items-start">
-          <div className=" basis-[20%] border border-solid border-stone-300 rounded-md">
+          <div className=" basis-[20%] ">
+            <Sort />
             <Filter filterItems={genres}>
               <Languages />
             </Filter>
