@@ -10,6 +10,8 @@ interface SortItemsType {
 const sortItems: SortItemsType[] = [
   { text: "Title (A,Z)", value: "A_Z" },
   { text: "Title (Z,A)", value: "Z_A" },
+  { text: "Rating Ascending", value: "Rating-asc" },
+  { text: "Rating Descending", value: "Rating-desc" },
 ];
 const SortOptions = () => {
   const [sort, setSort] = useState(sortItems.at(0)?.value as string);
