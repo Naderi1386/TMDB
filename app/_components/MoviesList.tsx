@@ -35,6 +35,10 @@ const MoviesList = async ({
       ? moviesByGenre.sort((a, b) => a.title.localeCompare(b.title))
       : sort === "Z_A"
       ? moviesByGenre.sort((a, b) => a.title.localeCompare(b.title)).reverse()
+      : sort === "Rating-asc"
+      ? moviesByGenre.sort((a, b) => a.vote_average - b.vote_average)
+      : sort === "Rating-desc"
+      ? moviesByGenre.sort((a, b) => a.vote_average - b.vote_average).reverse()
       : moviesByGenre
     : moviesByGenre;
   if (movies.length === 0) return <EmptyContent>No Movies ):</EmptyContent>;
