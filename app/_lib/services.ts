@@ -177,8 +177,9 @@ export const getLanguages = async () => {
   }
 };
 
-export const getTrendMovies = async () => {
-  const url = "https://api.themoviedb.org/3/trending/movie/day?language=en-US";
+
+export const getTrendMovies = async (time:"day" | "week") => {
+  const url = `https://api.themoviedb.org/3/trending/movie/${time}?language=en-US`;
   const options = {
     method: "GET",
     headers: {
