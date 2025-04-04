@@ -32,6 +32,10 @@ const TVShowsList = async ({
       ? showsByGenre.sort((a, b) => a.name.localeCompare(b.name))
       : sort === "Z_A"
       ? showsByGenre.sort((a, b) => a.name.localeCompare(b.name)).reverse()
+      : sort === "Rating-asc"
+      ? showsByGenre.sort((a, b) => a.vote_average - b.vote_average)
+      : sort === "Rating-desc"
+      ? showsByGenre.sort((a, b) => a.vote_average - b.vote_average).reverse()
       : showsByGenre
     : showsByGenre;
   if (shows.length === 0) return <EmptyContent>No TV Shows ):</EmptyContent>;
