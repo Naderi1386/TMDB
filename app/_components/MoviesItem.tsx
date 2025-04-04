@@ -1,7 +1,9 @@
+"use client"
 import Image from "next/image";
 import { MovieType } from "../_lib/services";
 import { formatDate } from "../_lib/helper";
 import Link from "next/link";
+import { useState } from "react";
 
 interface MoviesItemPropsType {
   movie: MovieType;
@@ -9,6 +11,7 @@ interface MoviesItemPropsType {
 const MoviesItem = ({ movie }: MoviesItemPropsType) => {
   const { title, poster_path, release_date, vote_average, id } = movie;
   const src = `https://image.tmdb.org/t/p/w500${poster_path}`;
+  const [img, setImg] = useState(src);
   const date = formatDate(release_date);
 
   return (
@@ -23,7 +26,10 @@ const MoviesItem = ({ movie }: MoviesItemPropsType) => {
             fill
             className="object-cover "
             alt={`Image-${title}`}
-            src={src}
+            onError={() =>
+              setImg("https://demofree.sirv.com/nope-not-here.jpg?w=120")
+            }
+            src={img}
             unoptimized
           />
         </div>
