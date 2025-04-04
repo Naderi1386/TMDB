@@ -41,7 +41,7 @@ const MoviesList = async ({
       ? moviesByGenre.sort((a, b) => a.vote_average - b.vote_average).reverse()
       : moviesByGenre
     : moviesByGenre;
-  if (movies.length === 0) return <EmptyContent>No Movies ):</EmptyContent>;
+  if (movies.length === 0) return <EmptyContent topic="Movies">No Movies ):</EmptyContent>;
   return (
     <>
       <ul className="flex flex-wrap justify-between items-stretch gap-6">
