@@ -1,4 +1,9 @@
+import { Metadata } from "next";
 import LoginButton from "../_components/LoginButton";
+
+export const metadata:Metadata={
+  title:"Login"
+}
 
 const page = () => {
   return (
