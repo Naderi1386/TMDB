@@ -29,13 +29,15 @@ export async function generateMetadata(props: PagePropsType) {
   };
 }
 const page = async (props: PagePropsType) => {
-  const type = await (await props.searchParams).type;
-  const page = (await (await props.searchParams).page) || "1";
-  const genre = (await props.searchParams).genre || "";
-  const lan = (await props.searchParams).lan || "";
-  const sort = (await props.searchParams).sort || "";
+  const [type, page, genre, lan, sort, genres] = await Promise.all([
+    await (await props.searchParams).type,
+    (await (await props.searchParams).page) || "1",
+    (await props.searchParams).genre || "",
+    (await props.searchParams).lan || "",
+    (await props.searchParams).sort || "",
+    await getTVShowsGenres(),
+  ]);
   const totalPages = await getTVShowsTotalPages(type);
-  const genres = await getTVShowsGenres();
   const key = `${type}&${page}`;
   return (
     <div>
