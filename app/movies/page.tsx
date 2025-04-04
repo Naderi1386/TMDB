@@ -15,7 +15,7 @@ interface SearchParamsType {
   page?: string;
   genre?: string;
   lan?: string;
-  sort?:string
+  sort?: string;
 }
 interface PagePropsType {
   searchParams: Promise<SearchParamsType>;
@@ -30,13 +30,15 @@ export async function generateMetadata(props: PagePropsType) {
 }
 
 const page = async (props: PagePropsType) => {
-  const type = (await props.searchParams).type;
-  const page = (await props.searchParams).page || "1";
-  const genre = (await props.searchParams).genre || "";
-  const lan = (await props.searchParams).lan || "";
-  const sort=(await props.searchParams).sort || ""
+  const [type, page, genre, lan, sort, genres] = await Promise.all([
+    (await props.searchParams).type,
+    (await props.searchParams).page || "1",
+    (await props.searchParams).genre || "",
+    (await props.searchParams).lan || "",
+    (await props.searchParams).sort || "",
+    await getMoviesGenres(),
+  ]);
   const totalPages = await getMoviesTotalPages(type);
-  const genres = await getMoviesGenres();
   const key = `${type}&${page}`;
 
   return (
