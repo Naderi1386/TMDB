@@ -26,9 +26,7 @@ const MoviesItem = ({ movie }: MoviesItemPropsType) => {
             fill
             className="object-cover "
             alt={`Image-${title}`}
-            onError={() =>
-              setImg("https://demofree.sirv.com/nope-not-here.jpg?w=120")
-            }
+            onError={() => setImg("/images/no-image.png")}
             src={img}
             unoptimized
           />

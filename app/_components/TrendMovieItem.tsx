@@ -24,7 +24,7 @@ const TrendMovieItem = ({ movie }: TrendMovieItemPropsType) => {
             alt={`Image-${title}`}
             src={img}
             onError={() =>
-              setImg("https://demofree.sirv.com/nope-not-here.jpg?w=120")
+              setImg("/images/no-image.png")
             }
             unoptimized
           />

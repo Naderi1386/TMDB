@@ -27,9 +27,7 @@ const TVShowItems = ({show}: TVShowItemsPropsType) => {
             className="object-cover "
             alt={`Image-${name}`}
             src={img}
-            onError={() =>
-              setImg("https://demofree.sirv.com/nope-not-here.jpg?w=120")
-            }
+            onError={() => setImg("/images/no-image.png")}
             unoptimized
           />
         </div>
