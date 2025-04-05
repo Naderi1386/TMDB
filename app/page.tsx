@@ -6,7 +6,7 @@ export default function Home() {
     <div className="py-10 px-[10rem]">
       <div>
         <TrendContent>
-          <TrendingList />
+          <TrendingList  />
         </TrendContent>
       </div>
     </div>

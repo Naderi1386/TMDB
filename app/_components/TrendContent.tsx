@@ -5,7 +5,7 @@ interface TrendContentPropsType {
   children: ReactNode;
 }
 const TrendContent = ({ children }: TrendContentPropsType) => {
-  const [time, setTime] = useState<"day" | "week">("day");
+  const [time, setTime] = useState("day");
   return (
     <div>
       <div className="text-2xl font-bold mb-5 flex items-center gap-5">
