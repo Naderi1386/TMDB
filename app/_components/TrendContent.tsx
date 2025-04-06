@@ -1,11 +1,21 @@
 "use client";
-import { ReactNode, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { ReactNode } from "react";
 
 interface TrendContentPropsType {
   children: ReactNode;
 }
 const TrendContent = ({ children }: TrendContentPropsType) => {
-  const [time, setTime] = useState("day");
+  const searchParams = useSearchParams();
+  const time = searchParams.get("time") || "day";
+  const pathname = usePathname();
+  const { replace } = useRouter();
+  const handleClick = (value: string) => {
+    const params = new URLSearchParams(searchParams);
+    params.set("time", value);
+    replace(`${pathname}?${params}`);
+  };
+
   return (
     <div>
       <div className="text-2xl font-bold mb-5 flex items-center gap-5">
@@ -13,7 +23,7 @@ const TrendContent = ({ children }: TrendContentPropsType) => {
         <div className="flex text-sm rounded-2xl text-blue-950 border border-solid border-blue-950">
           <button
             onClick={() => {
-              if (time === "week") setTime("day");
+              if (time === "week") handleClick("day");
             }}
             className={`${
               time === "day" ? "bg-blue-950 text-[#00d5be]" : "bg-white "
@@ -23,7 +33,7 @@ const TrendContent = ({ children }: TrendContentPropsType) => {
           </button>
           <button
             onClick={() => {
-              if (time === "day") setTime("week");
+              if (time === "day") handleClick("week");
             }}
             className={`${
               time === "week" ? "bg-blue-950 text-[#00d5be]" : "bg-white "

@@ -1,12 +1,19 @@
 import TrendContent from "./_components/TrendContent";
 import TrendingList from "./_components/TrendingList";
+interface SearchParamsType{
+  time:string
+}
+interface HomePropsType {
+  searchParams: Promise<SearchParamsType>;
+}
 
-export default function Home() {
+export default async function Home(props: HomePropsType) {
+  const time=await (await props.searchParams).time || "day"
   return (
     <div className="py-10 px-[10rem]">
       <div>
         <TrendContent>
-          <TrendingList  />
+          <TrendingList time={time} />
         </TrendContent>
       </div>
     </div>
