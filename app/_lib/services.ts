@@ -177,8 +177,7 @@ export const getLanguages = async () => {
   }
 };
 
-
-export const getTrendMovies = async (time:string) => {
+export const getTrendMovies = async (time: string) => {
   const url = `https://api.themoviedb.org/3/trending/movie/${time}?language=en-US`;
   const options = {
     method: "GET",
@@ -188,13 +187,34 @@ export const getTrendMovies = async (time:string) => {
     },
   };
   try {
-    const request=await  fetch(url, options)
-    const response=await request.json()
+    const request = await fetch(url, options);
+    const response = await request.json();
     return response.results as MovieType[];
   } catch (error) {
     console.error(error);
     throw new Error("Genres could not be loaded !");
   }
- 
-   
+};
+
+export const getPopularShows = async () => {
+  const url = "https://api.themoviedb.org/3/tv/popular?language=en-US&page=1";
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${process.env.API_TOKEN as string}`,
+    },
+  };
+  try {
+    
+    const request = await fetch(url, options);
+    const response=await request.json()
+    return response.results as TVShowType[];
+  } catch (error) {
+    console.error(error);
+    throw new Error("Genres could not be loaded !");
+  }
+
+  
+    
 };
