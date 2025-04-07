@@ -1,3 +1,4 @@
+import HomePageSearchSection from "./_components/HomePageSearchSection";
 import PopularContent from "./_components/PopularContent";
 import TrendContent from "./_components/TrendContent";
 import TrendingList from "./_components/TrendingList";
@@ -11,8 +12,11 @@ interface HomePropsType {
 export default async function Home(props: HomePropsType) {
   const time = (await (await props.searchParams).time) || "day";
   return (
-    <div className="py-10 px-[10rem]">
+    <div>
       <div>
+        <HomePageSearchSection />
+      </div>
+      <div className="py-10 px-[10rem]">
         <TrendContent>
           <TrendingList time={time} />
         </TrendContent>
