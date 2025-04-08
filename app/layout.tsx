@@ -21,7 +21,7 @@ export const shrikhand=Shrikhand({
 export const metadata: Metadata = {
   title: {
     default: "TMDB",
-    template: "%s TMDB",
+    template: "%s (TMDB)",
   },
   description:
     "The TMDB website is here for you to find the best ones in the world",
