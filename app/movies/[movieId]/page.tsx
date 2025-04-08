@@ -1,3 +1,4 @@
+import MovieDetails from "@/app/_components/MovieDetails";
 import { getDetailsMovie } from "@/app/_lib/services";
 
 interface ParamsType{
@@ -19,7 +20,9 @@ export const generateMetadata=async (props:PagePropsType)=>{
 const page =async ({params}: PagePropsType) => {
     const movieId=(await params).movieId
     const movieDetails=await getDetailsMovie(movieId)
-  return <div>{movieDetails.title}</div>;
+  return <div>
+    <MovieDetails details={movieDetails} />
+  </div>;
 };
 
 export default page
