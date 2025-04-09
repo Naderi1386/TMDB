@@ -16,7 +16,7 @@ const MovieDetails = ({details}: MovieDetailsPropsType) => {
         </div>
         <div className="w-[77.5%] text-white">
             <div className="flex items-center gap-2 ">
-                <h1 className="font-bold text-3xl">{title}</h1>
+                <h1 className="font-bold text-3xl transition-all duration-150 hover:opacity-70">{title}</h1>
                 <span className="font-light text-4xl text-gray-200">({release_date.slice(0,4)})</span>
 
             </div>

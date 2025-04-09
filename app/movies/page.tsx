@@ -21,9 +21,9 @@ interface PagePropsType {
   searchParams: Promise<SearchParamsType>;
 }
 export async function generateMetadata(props: PagePropsType) {
-  const type = (await props.searchParams).type
-    .replace("_", " ")
-    .toLocaleUpperCase();
+  const type =
+    (await props.searchParams).type ||
+    "popular".replace("_", " ").toLocaleUpperCase();
   return {
     title: `${type} Movies`,
   };
@@ -31,7 +31,7 @@ export async function generateMetadata(props: PagePropsType) {
 
 const page = async (props: PagePropsType) => {
   const [type, page, genre, lan, sort, genres] = await Promise.all([
-    (await props.searchParams).type,
+    (await props.searchParams).type || "popular",
     (await props.searchParams).page || "1",
     (await props.searchParams).genre || "",
     (await props.searchParams).lan || "",
