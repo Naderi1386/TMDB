@@ -1,4 +1,5 @@
 import { MovieDetailsType } from "../_lib/services"
+import AddToFav from "./AddToFav";
 import DetailsPoster from "./DetailsPoster";
 import DetailsScore from "./DetailsScore";
 import DetailsSmallInformations from "./DetailsSmallInformations";
@@ -24,6 +25,9 @@ const MovieDetails = ({details}: MovieDetailsPropsType) => {
             </div>
             <DetailsSmallInformations runtime={runtime} genres={genres} release_date={release_date} />
             <DetailsScore vote={Number(vote_average.toFixed(1))} />
+            <div className="mt-4">
+              <AddToFav item={details} />
+            </div>
         </div>
       </div>
     </div>
