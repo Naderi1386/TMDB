@@ -46,7 +46,7 @@ const MovieDetails = ({ details }: MovieDetailsPropsType) => {
             <AddToFav item={details} />
           </div>
           <div className="mt-6">
-            <p className="text-[#fff]/60 italic">{tagline}</p>
+            <p className="text-[#fff]/60 italic mb-1">{tagline}</p>
             <DetailsOverveiw overview={overview} />
           </div>
         </div>
