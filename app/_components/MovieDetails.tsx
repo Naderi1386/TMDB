@@ -17,6 +17,7 @@ const MovieDetails = ({ details }: MovieDetailsPropsType) => {
     runtime,
     vote_average,
     overview,
+    tagline
   } = details;
 
   const src = `https://media.themoviedb.org/t/p/w600_and_h900_bestv2${poster_path}`;
@@ -45,6 +46,7 @@ const MovieDetails = ({ details }: MovieDetailsPropsType) => {
             <AddToFav item={details} />
           </div>
           <div className="mt-6">
+            <p className="text-[#fff]/60 italic">{tagline}</p>
             <DetailsOverveiw overview={overview} />
           </div>
         </div>
