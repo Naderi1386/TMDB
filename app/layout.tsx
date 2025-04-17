@@ -34,7 +34,7 @@ interface RootLayoutPropsType {
 export default function RootLayout({ children }: RootLayoutPropsType) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased flex flex-col h-dvh`}>
+      <body className={`${inter.className} antialiased flex flex-col h-dvh overflow-x-hidden`}>
         <Header />
         <main className="grow">{children}</main>
         <Footer />

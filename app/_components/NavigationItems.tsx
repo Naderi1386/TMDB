@@ -1,7 +1,8 @@
 "use client";
-import Link from "next/link";
 import { useState } from "react";
-interface NavigationItemListType {
+import NavigationList from "./NavigationList";
+import { AnimatePresence } from "framer-motion";
+export interface NavigationItemListType {
   text: string;
   href: string;
 }
@@ -21,17 +22,9 @@ const NavigationItems = ({ title, list }: NavigationItemsPropsType) => {
     >
       <span className="text-sm font-bold">{title}</span>
       {isOpen && (
-        <ul className="bg-white text-black rounded-md  w-[8.5rem] flex flex-col  absolute bottom-[-8rem] border border-solid border-stone-400 overflow-hidden z-[1000] ">
-          {list.map((item, index) => (
-            <li
-              onClick={() => setIsOpen(false)}
-              key={index}
-              className="text-[13px] font-light px-3 py-[6px]  transition-all duration-150 hover:bg-gray-300"
-            >
-              <Link href={item.href}>{item.text}</Link>
-            </li>
-          ))}
-        </ul>
+        <AnimatePresence mode="wait">
+          <NavigationList list={list} handleClose={() => setIsOpen(false)} />
+        </AnimatePresence>
       )}
     </div>
   );
