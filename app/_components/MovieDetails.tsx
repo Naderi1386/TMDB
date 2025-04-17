@@ -12,7 +12,7 @@ const MovieDetails = ({details}: MovieDetailsPropsType) => {
     const src = `https://media.themoviedb.org/t/p/w600_and_h900_bestv2${poster_path}`;
   return (
     <div>
-      <div className="bg-neutral-900 px-[10rem] py-8 flex items-start gap-10 ">
+      <div className="bg-neutral-800 px-[10rem] py-8 flex items-start gap-10 ">
         <div className="w-[22.5%] relative h-[400px] border border-solid border-white rounded-md overflow-hidden ">
           <DetailsPoster src={src} title={title} />
         </div>
