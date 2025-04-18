@@ -4,6 +4,7 @@ import DetailsOverveiw from "./DetailsOverveiw";
 import DetailsPoster from "./DetailsPoster";
 import DetailsScore from "./DetailsScore";
 import DetailsSmallInformations from "./DetailsSmallInformations";
+import ShortDetails from "./ShortDetails";
 
 interface MovieDetailsPropsType {
   details: MovieDetailsType;
@@ -17,7 +18,11 @@ const MovieDetails = ({ details }: MovieDetailsPropsType) => {
     runtime,
     vote_average,
     overview,
-    tagline
+    tagline,
+    status,
+    original_language,
+    budget,
+    revenue
   } = details;
 
   const src = `https://media.themoviedb.org/t/p/w600_and_h900_bestv2${poster_path}`;
@@ -48,9 +53,11 @@ const MovieDetails = ({ details }: MovieDetailsPropsType) => {
           <div className="mt-6">
             <p className="text-[#fff]/60 italic mb-1">{tagline}</p>
             <DetailsOverveiw overview={overview} />
-            
           </div>
         </div>
+      </div>
+      <div className="bg-white px-[10rem] py-8">
+        <ShortDetails status={status} budget={budget} revenue={revenue} original_language={original_language} />
       </div>
     </div>
   );
