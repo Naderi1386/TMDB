@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import { useState } from "react";
 
-interface DetailsPosterPropsType{
-    src:string
-    title:string
+interface DetailsPosterPropsType {
+  src: string;
+  title: string;
 }
-const DetailsPoster = ({src,title}: DetailsPosterPropsType) => {
-    const [img, setImg] = useState("/images/no-image.jpg");
+const DetailsPoster = ({ src, title }: DetailsPosterPropsType) => {
+  const [img, setImg] = useState("/images/no-image.jpg");
   return (
     <Image
       quality={80}
@@ -24,4 +24,4 @@ const DetailsPoster = ({src,title}: DetailsPosterPropsType) => {
   );
 };
 
-export default DetailsPoster
+export default DetailsPoster;
