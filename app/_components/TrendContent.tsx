@@ -13,7 +13,7 @@ const TrendContent = ({ children }: TrendContentPropsType) => {
   const handleClick = (value: string) => {
     const params = new URLSearchParams(searchParams);
     params.set("time", value);
-    replace(`${pathname}?${params}`);
+    replace(`${pathname}?${params}`,{scroll:false});
   };
 
   return (

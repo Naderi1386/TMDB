@@ -11,7 +11,7 @@ interface MoviesItemPropsType {
 const MoviesItem = ({ movie }: MoviesItemPropsType) => {
   const { title, poster_path, release_date, vote_average, id } = movie;
   const src = `https://image.tmdb.org/t/p/w500${poster_path}`;
-  const [img, setImg] = useState(src);
+  const [img, setImg] = useState("/images/no-image.jpg");
   const date = formatDate(release_date);
 
   return (
@@ -26,7 +26,10 @@ const MoviesItem = ({ movie }: MoviesItemPropsType) => {
             fill
             className="object-cover "
             alt={`Image-${title}`}
-            onError={() => setImg("/images/no-image.png")}
+            onError={() => setImg("/images/no-image.jpg")}
+            onLoadingComplete={() => {
+              setImg(src);
+            }}
             src={img}
             unoptimized
           />

@@ -11,7 +11,7 @@ interface TVShowItemsPropsType{
 const TVShowItems = ({show}: TVShowItemsPropsType) => {
     const {id,first_air_date,poster_path,name,vote_average}=show
   const src = `https://media.themoviedb.org/t/p/w500${poster_path}`;
-  const [img,setImg]=useState(src)
+  const [img, setImg] = useState("/images/no-image.jpg");
   const date = formatDate(first_air_date);
 
   return (
@@ -27,7 +27,10 @@ const TVShowItems = ({show}: TVShowItemsPropsType) => {
             className="object-cover "
             alt={`Image-${name}`}
             src={img}
-            onError={() => setImg("/images/no-image.png")}
+            onError={() => setImg("/images/no-image.jpg")}
+            onLoadingComplete={() => {
+              setImg(src);
+            }}
             unoptimized
           />
         </div>

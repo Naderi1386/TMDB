@@ -8,14 +8,17 @@ interface DetailsPosterPropsType{
     title:string
 }
 const DetailsPoster = ({src,title}: DetailsPosterPropsType) => {
-    const [img, setImg] = useState(src);
+    const [img, setImg] = useState("/images/no-image.jpg");
   return (
     <Image
       quality={80}
       fill
       className="object-cover "
       src={img}
-      onError={() => setImg("/images/no-image.png")}
+      onError={() => setImg("/images/no-image.jpg")}
+      onLoadingComplete={() => {
+        setImg(src);
+      }}
       alt={`${title}-Poster`}
     />
   );
