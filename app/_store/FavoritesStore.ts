@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 export interface FavoriteType {
   title: string;
@@ -7,20 +8,26 @@ export interface FavoriteType {
   date: string;
   runtime: number;
   revenue: number;
-  img:string
+  img: string;
   id: string;
 }
+
 interface StoreType {
   favorites: FavoriteType[];
   addFav: (fav: FavoriteType) => void;
   removeFav: (id: string) => void;
 }
 
-export const useFavoritesStore = create<StoreType>((set) => ({
-  favorites: [],
-  addFav: (fav) => set((state) => ({ favorites: [...state.favorites, fav] })),
-  removeFav: (id) =>
-    set((state) => ({
-      favorites: state.favorites.filter((fav) => fav.id !== id),
-    })),
-}));
+export const useFavoritesStore = create(
+  persist<StoreType>(
+    (set, get) => ({
+      favorites: [],
+      addFav: (fav) => set({ favorites: [...get().favorites, fav] }),
+      removeFav: (id) =>
+        set({ favorites: get().favorites.filter((fav) => fav.id !== id) }),
+    }),
+    {
+      name: "favorites-storage",
+    }
+  )
+);
