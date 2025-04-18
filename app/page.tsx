@@ -1,3 +1,4 @@
+import BTN from "./_components/BTN";
 import HomePageSearchSection from "./_components/HomePageSearchSection";
 import PopularContent from "./_components/PopularContent";
 import TrendContent from "./_components/TrendContent";
@@ -21,6 +22,7 @@ export default async function Home(props: HomePropsType) {
           <TrendingList time={time} />
         </TrendContent>
         <PopularContent />
+      
       </div>
     </div>
   );
