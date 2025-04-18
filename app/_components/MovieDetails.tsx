@@ -48,6 +48,7 @@ const MovieDetails = ({ details }: MovieDetailsPropsType) => {
           <div className="mt-6">
             <p className="text-[#fff]/60 italic mb-1">{tagline}</p>
             <DetailsOverveiw overview={overview} />
+            
           </div>
         </div>
       </div>
