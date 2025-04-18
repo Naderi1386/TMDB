@@ -22,10 +22,11 @@ const MovieDetails = ({ details }: MovieDetailsPropsType) => {
     status,
     original_language,
     budget,
-    revenue
+    revenue,
+    id,
   } = details;
-
   const src = `https://media.themoviedb.org/t/p/w600_and_h900_bestv2${poster_path}`;
+
   return (
     <div>
       <div className="bg-neutral-800 px-[10rem] py-8 flex items-start gap-10 ">
@@ -48,7 +49,18 @@ const MovieDetails = ({ details }: MovieDetailsPropsType) => {
           />
           <DetailsScore vote={Number(vote_average.toFixed(1))} />
           <div className="mt-4">
-            <AddToFav item={details} />
+            <AddToFav
+              item={{
+                date: release_date,
+                id: String(id),
+                rating: Number(vote_average.toFixed(1)),
+                runtime,
+                title,
+                revenue,
+                type: "movie",
+                img: src,
+              }}
+            />
           </div>
           <div className="mt-6">
             <p className="text-[#fff]/60 italic mb-1">{tagline}</p>
@@ -57,7 +69,12 @@ const MovieDetails = ({ details }: MovieDetailsPropsType) => {
         </div>
       </div>
       <div className="bg-white px-[10rem] py-6 border-b border-solid border-stone-700/30 mb-2">
-        <ShortDetails status={status} budget={budget} revenue={revenue} original_language={original_language} />
+        <ShortDetails
+          status={status}
+          budget={budget}
+          revenue={revenue}
+          original_language={original_language}
+        />
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ export interface FavoriteType {
   date: string;
   runtime: number;
   revenue: number;
+  img:string
   id: string;
 }
 interface StoreType {
