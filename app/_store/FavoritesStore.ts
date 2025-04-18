@@ -1,13 +1,25 @@
 import { create } from "zustand";
 
+export interface FavoriteType {
+  title: string;
+  rating: number;
+  type: "movie" | "tv";
+  date: string;
+  runtime: number;
+  revenue: number;
+  id: string;
+}
 interface StoreType {
-  count: number;
-  increase: () => void;
-  decrease: () => void;
+  favorites: FavoriteType[];
+  addFav: (fav: FavoriteType) => void;
+  removeFav: (id: string) => void;
 }
 
-export const useStore = create<StoreType>((set) => ({
-  count: 0,
-  increase: () => set((store) => ({ count: store.count + 1 })),
-  decrease: () => set((store) => ({ count: store.count - 1 })),
+export const useFavoritesStore = create<StoreType>((set) => ({
+  favorites: [],
+  addFav: (fav) => set((state) => ({ favorites: [...state.favorites, fav] })),
+  removeFav: (id) =>
+    set((state) => ({
+      favorites: state.favorites.filter((fav) => fav.id !== id),
+    })),
 }));
