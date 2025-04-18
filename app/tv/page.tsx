@@ -21,17 +21,17 @@ interface PagePropsType {
   searchParams: Promise<SearchParamsType>;
 }
 export async function generateMetadata(props: PagePropsType) {
-  const type = (await props.searchParams).type
-    .replace("_", " ")
-    .toLocaleUpperCase();
+  const type =
+    (await props.searchParams).type.replace("_", " ").toLocaleUpperCase() ||
+    "popular";
   return {
     title: `${type} TV Shows`,
   };
 }
 const page = async (props: PagePropsType) => {
   const [type, page, genre, lan, sort, genres] = await Promise.all([
-    await (await props.searchParams).type,
-    (await (await props.searchParams).page) || "1",
+    await(await props.searchParams).type || "popular",
+    await(await props.searchParams).page || "1",
     (await props.searchParams).genre || "",
     (await props.searchParams).lan || "",
     (await props.searchParams).sort || "",
