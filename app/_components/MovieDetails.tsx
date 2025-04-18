@@ -56,7 +56,7 @@ const MovieDetails = ({ details }: MovieDetailsPropsType) => {
           </div>
         </div>
       </div>
-      <div className="bg-white px-[10rem] py-6">
+      <div className="bg-white px-[10rem] py-6 border-b border-solid border-stone-700/30 mb-2">
         <ShortDetails status={status} budget={budget} revenue={revenue} original_language={original_language} />
       </div>
     </div>

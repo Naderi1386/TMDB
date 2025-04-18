@@ -13,7 +13,7 @@ const ShortDetails = ({
   revenue,
 }: ShortDetailsPropsType) => {
   return (
-    <div className="flex items-center justify-center gap-8">
+    <div className="flex items-center justify-center gap-24 ">
       <ShortDetailsText title="Status" value={status} />
       <ShortDetailsText title="Original Language" value={original_language} />
       <ShortDetailsText title="Budget" value={budget} />
