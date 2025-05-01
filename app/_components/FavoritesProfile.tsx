@@ -13,7 +13,7 @@ const FavoritesProfile =async () => {
         height={40}
         className="rounded-full"
       />
-      <span className="text-white text-xl ">
+      <span className="text-white text-xl font-light ">
         A List By <span className="font-bold">{session?.user?.name}</span>
       </span>
     </div>

@@ -1,3 +1,4 @@
+import FavoritesDetails from "../_components/FavoritesDetails";
 import FavoritesTitleSection from "../_components/FavoritesTitleSection";
 
 const page = () => {
@@ -5,6 +6,7 @@ const page = () => {
     <section>
       <div>
         <FavoritesTitleSection />
+        <FavoritesDetails />
       </div>
     </section>
   );
