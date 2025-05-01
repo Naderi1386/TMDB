@@ -8,10 +8,12 @@ const FavoritesDetailsItem = ({
   children,
   title,
 }: FavoritesDetailsItemPropsType) => {
-  return <div className="flex flex-col gap-3 text-white text-2xl items-start">
-    <span>{children}</span>
-    <span>{title}</span>
-  </div>;
+  return (
+    <div className="flex flex-col gap-1 text-white items-start">
+      <span className="text-2xl">{children}</span>
+      <span className="text-lg font-bold">{title}</span>
+    </div>
+  );
 };
 
 export default FavoritesDetailsItem;
