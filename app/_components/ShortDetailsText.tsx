@@ -1,4 +1,4 @@
-function SplitFromRightRegex(val: string) {
+export function SplitFromRightRegex(val: string) {
   const reversed = val.split("").reverse().join("");
   const parts = reversed.match(/.{1,3}/g);
   const result = parts
