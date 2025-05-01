@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FavoriteType } from "../_store/FavoritesStore";
 import { formatDate } from "../_lib/helper";
+import FavoriteDeleteBtn from "./FavoriteDeleteBtn";
 
 interface FavoriteItemsPropsType {
   favorite: FavoriteType;
@@ -36,6 +37,7 @@ const FavoriteItems = ({ favorite, index }: FavoriteItemsPropsType) => {
             ${revenueVal}M
 
           </span>
+          <FavoriteDeleteBtn id={id} />
         </div>
       </div>
     </li>
