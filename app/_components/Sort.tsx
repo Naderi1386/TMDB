@@ -17,7 +17,7 @@ const Sort = () => {
           ${isShowSort && " border-b border-solid border-stone-200"}
          px-4 py-3`}
       >
-        <h4 className="font-bold">Sort</h4>
+        <h4 className="font-bold text-black">Sort</h4>
         <button
           onClick={() => setIsShowSort((isShow) => !isShow)}
           className="cursor-pointer"
@@ -32,7 +32,7 @@ const Sort = () => {
       {isShowSort && (
         <div>
           <div className="px-4 py-3 mt-2">
-            <h3 className="font-light mb-4 text-sm">Sort Results By</h3>
+            <h3 className="font-light mb-4 text-sm text-black">Sort Results By</h3>
             <SortOptions />
           </div>
         </div>

@@ -6,7 +6,7 @@ const MoviePageTitle = ({ title,topic }: MoviePageTitlePropsType) => {
     const titlePage=title.replaceAll("_"," ")
   return (
     <div>
-      <h1 className="text-2xl font-bold capitalize my-8">
+      <h1 className="text-2xl font-bold capitalize my-8 text-black">
         {titlePage} {topic}
       </h1>
     </div>

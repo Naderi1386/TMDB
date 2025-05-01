@@ -26,7 +26,7 @@ const MoviesPagination = ({ totalPages }: MoviesPaginationPropsType) => {
     <div className="flex justify-center items-center gap-8 mt-14">
       {page !== "1" && (
         <button className="cursor-pointer" onClick={handlePreviousPage}>
-          <GrPrevious size={25} />
+          <GrPrevious color="black" size={25} />
         </button>
       )}
 
@@ -35,7 +35,7 @@ const MoviesPagination = ({ totalPages }: MoviesPaginationPropsType) => {
       </div>
       {Number(page) < totalPages && (
         <button className="cursor-pointer" onClick={handleNextPage}>
-          <GrNext size={25} />
+          <GrNext color="black" size={25} />
         </button>
       )}
     </div>

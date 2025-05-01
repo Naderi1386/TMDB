@@ -1,4 +1,3 @@
-import BTN from "./_components/BTN";
 import HomePageSearchSection from "./_components/HomePageSearchSection";
 import PopularContent from "./_components/PopularContent";
 import TrendContent from "./_components/TrendContent";
@@ -17,7 +16,7 @@ export default async function Home(props: HomePropsType) {
       <div>
         <HomePageSearchSection />
       </div>
-      <div className="py-10 px-[10rem] bg-white">
+      <div className="py-10 px-[10rem]">
         <TrendContent>
           <TrendingList time={time} />
         </TrendContent>

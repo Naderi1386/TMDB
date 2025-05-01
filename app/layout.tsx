@@ -36,7 +36,7 @@ export default function RootLayout({ children }: RootLayoutPropsType) {
     <html lang="en">
       <body className={`${inter.className} antialiased flex flex-col h-dvh overflow-x-hidden`}>
         <Header />
-        <main className="grow">{children}</main>
+        <main className="grow bg-white">{children}</main>
         <Footer />
         <ScrollButton />
       </body>

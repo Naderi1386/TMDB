@@ -15,7 +15,7 @@ const Filter = ({ filterItems, children }: FilterPropsType) => {
   return (
     <div
       style={{ boxShadow: "0 2px 8px rgba(0, 0, 0, .1)" }}
-      className={`w-full  rounded-md border border-stone-200 border-solid `}
+      className={`w-full  rounded-md border border-stone-200 border-solid text-black `}
     >
       <div
         className={`flex items-center justify-between ${

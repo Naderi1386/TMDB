@@ -43,7 +43,7 @@ const page = async (props: PagePropsType) => {
 
   return (
     <div>
-      <div className="px-[10rem] pb-16">
+      <div className="px-[10rem] pb-16 ">
         <MoviePageTitle title={type} topic="Movies" />
         <div className="flex gap-10 items-start">
           <div className=" basis-[20%] ">

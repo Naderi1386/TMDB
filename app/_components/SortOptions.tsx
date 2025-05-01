@@ -35,11 +35,11 @@ const SortOptions = () => {
       <select
         onChange={(e) => setSort(e.target.value)}
         value={sort}
-        className="w-full font-light cursor-pointer outline-none bg-[#d1d5dc] py-2 px-3 mb-4 text-sm rounded-md transition-all duration-150 hover:bg-[#99a1af]"
+        className="w-full font-light cursor-pointer outline-none text-black bg-[#d1d5dc] py-2 px-3 mb-4 text-sm rounded-md transition-all duration-150 hover:bg-[#99a1af]"
       >
         {sortItems.map((item) => (
           <option
-            className="bg-white font-light "
+            className="bg-white font-light text-black "
             key={item.value}
             value={item.value}
           >

@@ -38,12 +38,12 @@ const MoviesItem = ({ movie }: MoviesItemPropsType) => {
       <div className="px-3 py-4 ">
         <Link
           href={`movies/${id}`}
-          className="text-sm font-bold transition-all duration-150 hover:text-sky-400 cursor-pointer"
+          className="text-sm font-bold transition-all duration-150 text-black hover:text-sky-400 cursor-pointer"
         >
           {title}
         </Link>
         <span className="text-sm text-stone-400 block">{date}</span>
-        <span className="text-xs font-bold">{vote_average.toFixed(1)} ⭐</span>
+        <span className="text-xs font-bold text-black">{vote_average.toFixed(1)} ⭐</span>
       </div>
     </li>
   );
