@@ -25,7 +25,7 @@ const FavoritesDetails = () => {
   
 
   return (
-    <div className="bg-slate-950 px-[10rem] py-3">
+    <div className="bg-slate-950 px-[10rem] py-4">
       <div className="flex items-center gap-8">
         <FavoritesDetailsItem title="Item on this list">
           {favorites.length}
