@@ -14,16 +14,30 @@ const HeaderProfile = async () => {
       </Link>
     );
   return (
-    <div className="flex items-center gap-3 mt-[2px] text-white">
-      <span className="text-sm font-bold">{session.user?.name}</span>
-      <Image
-        alt={`Avatar-${session.user?.name}`}
-        src={session.user?.image as string}
-        width={24}
-        height={24}
-        className="rounded-full"
-      />
-    </div>
+    <>
+      <div className="dropdown dropdown-center">
+        <div tabIndex={0} role="button" className="btn bg-transparent ">
+          <div className=" flex items-center gap-3 mt-[2px] text-white">
+            <span className="text-sm font-bold">{session.user?.name}</span>
+            <Image
+              alt={`Avatar-${session.user?.name}`}
+              src={session.user?.image as string}
+              width={24}
+              height={24}
+              className="rounded-full"
+            />
+          </div>
+        </div>
+        <ul
+          tabIndex={0}
+          className="dropdown-content menu text-black bg-white rounded-sm z-1 w-52 p-0 shadow-md overflow-hidden"
+        >
+          <li className="p-[2px] transition-all duration-75 hover:bg-stone-300">
+            <Link href={"/favorites"}>Favorites ♥️</Link>
+          </li>
+        </ul>
+      </div>
+    </>
   );
 };
 

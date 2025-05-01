@@ -19,7 +19,7 @@ const TrendContent = ({ children }: TrendContentPropsType) => {
   return (
     <div>
       <div className="text-2xl font-bold mb-5 flex items-center gap-5">
-        <h2>Trending</h2>
+        <h2 className="text-black">Trending</h2>
         <div className="flex text-sm rounded-2xl text-blue-950 border border-solid border-blue-950">
           <button
             onClick={() => {

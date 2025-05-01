@@ -5,7 +5,7 @@ const PopularContent = () => {
     <div>
       <div className="my-24 ">
         <div className="flex items-center gap-5 text-2xl font-bold mb-5">
-          <h2>What&apos;s Popular</h2>
+          <h2 className="text-black">What&apos;s Popular</h2>
         </div>
         <PopularList />
       </div>
