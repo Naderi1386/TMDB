@@ -21,7 +21,7 @@ const FavoriteItems = ({ favorite, index }: FavoriteItemsPropsType) => {
           {title}
         </Link>
         <div className="flex items-center justify-end gap-4">
-          <span className="text-gray-400 text-[14px]">{rating} ⭐</span>
+          <span className="text-gray-400 text-[14px]">{rating }⭐</span>
           <span className="text-white rounded-3xl text-xs py-[6px] px-3 bg-gradient-to-r from-amber-300 to-rose-500 capitalize">
             {type}
           </span>
