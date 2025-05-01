@@ -34,7 +34,7 @@ const page = async ({ params }: PagePropsType) => {
           </TrendContent>
         </div>
         <div className="mt-12">
-            <PopularContent />
+          <PopularContent />
         </div>
       </div>
     </div>

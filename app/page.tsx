@@ -17,7 +17,7 @@ export default async function Home(props: HomePropsType) {
       <div>
         <HomePageSearchSection />
       </div>
-      <div className="py-10 px-[10rem]">
+      <div className="py-10 px-[10rem] bg-white">
         <TrendContent>
           <TrendingList time={time} />
         </TrendContent>
