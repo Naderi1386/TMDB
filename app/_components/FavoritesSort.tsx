@@ -2,6 +2,7 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useFavoritesStore } from "../_store/FavoritesStore";
+import DeleteSortButton from "./DeleteSortButton";
 
 const FavoritesSort = () => {
   const pathname = usePathname();
@@ -16,8 +17,8 @@ const FavoritesSort = () => {
     replace(`${pathname}?${params}`);
   };
   return (
-    <div className="flex justify-center">
-      <div className="dropdown dropdown-center dropdown-hover mt-2 ">
+    <div className="flex justify-center items-center gap-8 pt-3">
+      <div className="dropdown dropdown-center dropdown-hover  ">
         <div
           tabIndex={0}
           role="button"
@@ -37,6 +38,7 @@ const FavoritesSort = () => {
           </li>
         </ul>
       </div>
+      <DeleteSortButton />
     </div>
   );
 };
