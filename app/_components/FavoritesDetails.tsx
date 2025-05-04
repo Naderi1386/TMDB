@@ -17,6 +17,7 @@ const FavoritesDetails = () => {
   const sumRatings = Number(
     ratings.reduce((acc, curr) => acc + curr, 0).toFixed(1)
   );
+  console.log(sumRatings)
   const totalRuntimes = favorites
     .map((fav) => fav.runtime)
     .reduce((acc, curr) => acc + curr, 0);
@@ -32,7 +33,7 @@ const FavoritesDetails = () => {
           {favorites.length}
         </FavoritesDetailsItem>
         <FavoritesDetailsItem title="Average Rating">
-          <span>{sumRatings / favorites.length}/10</span>
+          <span>{(sumRatings / favorites.length).toFixed(2)}/10</span>
         </FavoritesDetailsItem>
         <FavoritesDetailsItem
           title="Total Runtime
