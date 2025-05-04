@@ -1,18 +1,17 @@
-"use client"
+"use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 const FavoritesSort = () => {
-    const pathname=usePathname()
-    const {replace}=useRouter()
-    const searchParams=useSearchParams()
+  const pathname = usePathname();
+  const { replace } = useRouter();
+  const searchParams = useSearchParams();
 
-    const handleClick=(val:string)=>{
-        const params=new URLSearchParams(searchParams)
-        params.set("sort",val)
-        replace(`${pathname}?${params}`)
-
-    }
+  const handleClick = (val: string) => {
+    const params = new URLSearchParams(searchParams);
+    params.set("sort", val);
+    replace(`${pathname}?${params}`);
+  };
   return (
     <div className="flex justify-center">
       <div className="dropdown dropdown-center dropdown-hover mt-2 ">
@@ -37,6 +36,6 @@ const FavoritesSort = () => {
       </div>
     </div>
   );
-}
+};
 
-export default FavoritesSort
+export default FavoritesSort;
