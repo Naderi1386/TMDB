@@ -23,7 +23,7 @@ const page = async ({ searchParams }: PagePropsType) => {
         <FavoritesTitleSection />
         <FavoritesDetails />
         <FavoritesSort />
-        <FavoritesList />
+        <FavoritesList sort={sort} />
       </div>
     </section>
   );

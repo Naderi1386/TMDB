@@ -1,11 +1,14 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useFavoritesStore } from "../_store/FavoritesStore";
 
 const FavoritesSort = () => {
   const pathname = usePathname();
   const { replace } = useRouter();
   const searchParams = useSearchParams();
+  const favorites = useFavoritesStore((state) => state.favorites);
+  if (!favorites.length) return null;
 
   const handleClick = (val: string) => {
     const params = new URLSearchParams(searchParams);
