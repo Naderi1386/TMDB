@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 interface DetailsOverveiwPropsType {
-  overview: string[];
+  overview: string[] | string;
 }
 const DetailsOverveiw = ({ overview }: DetailsOverveiwPropsType) => {
   const [isShow, setIsShow] = useState(false);

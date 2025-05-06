@@ -1,8 +1,10 @@
 import { TVShowDetailsType } from "../_lib/services";
 import AddToFav from "./AddToFav";
+import DetailsOverveiw from "./DetailsOverveiw";
 import DetailsPoster from "./DetailsPoster";
 import DetailsScore from "./DetailsScore";
 import DetailsSmallInformations from "./DetailsSmallInformations";
+import ShortDetails from "./ShortDetails";
 
 interface TVDetailsPropsType {
   details: TVShowDetailsType;
@@ -49,12 +51,17 @@ const TVDetails = ({ details }: TVDetailsPropsType) => {
                 img: src,
                 rating: Number(vote_average.toFixed(1)),
                 title: name,
-                type:'tv',
-
+                type: "tv",
               }}
             />
           </div>
+          <div className="mt-6">
+            <DetailsOverveiw overview={overview} />
+          </div>
         </div>
+      </div>
+      <div className="bg-white px-[10rem] py-6 border-b border-solid border-stone-700/30 mb-2">
+        <ShortDetails status={status} original_language={original_language} />
       </div>
     </div>
   );

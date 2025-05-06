@@ -5,7 +5,7 @@ interface DetailsScorePropsType {
 }
 const DetailsScore = ({ vote }: DetailsScorePropsType) => {
   return (
-    <div className="flex items-center gap-5 mt-7">
+    <div className="flex items-center gap-2 mt-7">
       <span className="font-bold text-2xl">{vote}</span>
       <span className="pb-[7px]">
         <FaStar color="yellow" size={28} />
