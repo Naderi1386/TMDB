@@ -1,18 +1,10 @@
 import Link from "next/link";
+import { GenreType } from "../_lib/services";
 
 interface DetailsSmallInformationsPropsType {
   release_date: string;
-  genres: [
-    {
-      id: number;
-      name: string;
-    },
-    {
-      id: number;
-      name: string;
-    }
-  ];
-  runtime: number;
+  genres: GenreType[];
+  runtime?: number;
 }
 
 const DetailsSmallInformations = ({
@@ -20,8 +12,8 @@ const DetailsSmallInformations = ({
   runtime,
   genres,
 }: DetailsSmallInformationsPropsType) => {
-  const houre = runtime / 60;
-  const minuet = runtime % 60;
+  const houre =runtime && runtime / 60;
+  const minuet =runtime && runtime % 60;
   
   const date=release_date.split("-").reverse().join("/")
   return (
@@ -32,7 +24,11 @@ const DetailsSmallInformations = ({
         {genres.map((genre, index) => (
           <Link
             className="transition-all duration-150 hover:opacity-70"
-            href={`/movies?genre=${genre.id}`}
+            href={
+              runtime
+                ? `/movies?type=popular&genre=${genre.id}`
+                : `/tv?type=popular&genre=${genre.id}`
+            }
             key={genre.id}
           >
             {genre.name}
@@ -41,10 +37,12 @@ const DetailsSmallInformations = ({
         ))}
       </div>
       <div className="bg-white w-[5px] h-[5px] rounded-[100%]"></div>
-      <div className="flex items-center gap-1">
-        <span>{Math.trunc(houre)}h</span>
-        <span>{minuet}m</span>
-      </div>
+      {runtime && (
+        <div className="flex items-center gap-1">
+          <span>{Math.trunc(houre as number)}h</span>
+          <span>{minuet}m</span>
+        </div>
+      )}
     </div>
   );
 };

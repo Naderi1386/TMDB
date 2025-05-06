@@ -1,4 +1,7 @@
 import { TVShowDetailsType } from "../_lib/services";
+import DetailsPoster from "./DetailsPoster";
+import DetailsScore from "./DetailsScore";
+import DetailsSmallInformations from "./DetailsSmallInformations";
 
 interface TVDetailsPropsType {
   details: TVShowDetailsType;
@@ -15,7 +18,32 @@ const TVDetails = ({ details }: TVDetailsPropsType) => {
     status,
     vote_average,
   } = details;
-  return <div>TVDetails</div>;
+    const src = `https://media.themoviedb.org/t/p/w600_and_h900_bestv2${backdrop_path}`;
+
+  return (
+    <div>
+      <div className="bg-neutral-800 px-[10rem] py-8 flex items-start gap-10 ">
+        <div className="w-[22.5%] relative h-[400px] border border-solid border-white rounded-md overflow-hidden ">
+          <DetailsPoster src={src} title={name} />
+        </div>
+        <div className="w-[77.5%] text-white">
+          <div className="flex items-center gap-2 ">
+            <h1 className="font-bold text-3xl transition-all duration-150 hover:opacity-70">
+              {name}
+            </h1>
+            <span className="font-light text-4xl text-gray-200">
+              ({first_air_date.slice(0, 4)})
+            </span>
+          </div>
+          <DetailsSmallInformations
+            genres={genres}
+            release_date={first_air_date}
+          />
+          <DetailsScore vote={Number(vote_average.toFixed(1))} />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default TVDetails;
