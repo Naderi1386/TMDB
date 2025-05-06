@@ -20,6 +20,7 @@ const FavoritesDetails = () => {
   const totalRuntimes = favorites
     .map((fav) => fav.runtime ? fav.runtime : 0)
     .reduce((acc, curr) => Number(acc) + Number(curr), 0);
+    console.log(totalRuntimes%60)
   const totalRevenue = favorites
     .map((fav) => fav.revenue ? fav.revenue : 0)
     .reduce((acc, curr) => Number(acc) + Number(curr), 0);
@@ -40,7 +41,7 @@ const FavoritesDetails = () => {
 "
           >
             <div className="flex items-center gap-1">
-              <span>{(Number(totalRuntimes) / 60).toFixed(0)}h</span>
+              <span>{Math.ceil(Number(totalRuntimes) / 60)}h</span>
               <span>{Number(totalRuntimes) % 60}m</span>
             </div>
           </FavoritesDetailsItem>
