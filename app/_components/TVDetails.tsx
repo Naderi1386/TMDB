@@ -1,4 +1,5 @@
 import { TVShowDetailsType } from "../_lib/services";
+import AddToFav from "./AddToFav";
 import DetailsPoster from "./DetailsPoster";
 import DetailsScore from "./DetailsScore";
 import DetailsSmallInformations from "./DetailsSmallInformations";
@@ -18,7 +19,7 @@ const TVDetails = ({ details }: TVDetailsPropsType) => {
     status,
     vote_average,
   } = details;
-    const src = `https://media.themoviedb.org/t/p/w600_and_h900_bestv2${backdrop_path}`;
+  const src = `https://media.themoviedb.org/t/p/w600_and_h900_bestv2${backdrop_path}`;
 
   return (
     <div>
@@ -40,6 +41,19 @@ const TVDetails = ({ details }: TVDetailsPropsType) => {
             release_date={first_air_date}
           />
           <DetailsScore vote={Number(vote_average.toFixed(1))} />
+          <div className="mt-4">
+            <AddToFav
+              item={{
+                id: String(id),
+                date: first_air_date,
+                img: src,
+                rating: Number(vote_average.toFixed(1)),
+                title: name,
+                type:'tv',
+
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>
