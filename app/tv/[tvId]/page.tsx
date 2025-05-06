@@ -5,6 +5,10 @@ interface ParamsType{
 interface PagePropsType{
     params:Promise<ParamsType>
 }
+export const generateMetadata=async(props:PagePropsType)=>{
+    const tvId=(await props.params).tvId
+
+}
 
 const page =async (props:PagePropsType) => {
     const tvId=await (await props.params).tvId

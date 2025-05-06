@@ -206,19 +206,14 @@ export const getPopularShows = async () => {
     },
   };
   try {
-    
     const request = await fetch(url, options);
-    const response=await request.json()
+    const response = await request.json();
     return response.results as TVShowType[];
   } catch (error) {
     console.error(error);
     throw new Error("Genres could not be loaded !");
   }
-
-  
-    
 };
-
 
 export interface MovieDetailsType {
   adult: boolean;
@@ -270,7 +265,7 @@ export interface MovieDetailsType {
   spoken_languages: [
     {
       english_name: string;
-      iso_639_1:string;
+      iso_639_1: string;
       name: string;
     }
   ];
@@ -282,23 +277,53 @@ export interface MovieDetailsType {
   vote_count: number;
 }
 
-export const getDetailsMovie=async(id:string)=>{
-const url = `https://api.themoviedb.org/3/movie/${id}?language=en-US`;
-const options = {
-  method: "GET",
-  headers: {
-    accept: "application/json",
-    Authorization: `Bearer ${process.env.API_TOKEN as string}`,
-  },
-};
-
+export const getDetailsMovie = async (id: string) => {
+  const url = `https://api.themoviedb.org/3/movie/${id}?language=en-US`;
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${process.env.API_TOKEN as string}`,
+    },
+  };
 
   try {
     const request = await fetch(url, options);
     const response = await request.json();
-    return response as MovieDetailsType
+    return response as MovieDetailsType;
   } catch (error) {
     console.error(error);
     throw new Error("Genres could not be loaded !");
   }
+};
+
+export interface TVShowDetailsType {
+  backdrop_path: string;
+  genres: GenreType[];
+  first_air_date: string;
+  id: number;
+  name: string;
+  overview: string;
+  vote_average: number;
+  status: string;
+  original_language: string;
 }
+
+export const getDetailsTVShow = async (id: string) => {
+  const url = `https://api.themoviedb.org/3/tv/${id}?language=en-US`;
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${process.env.API_TOKEN as string}`,
+    },
+  };
+  try {
+    const request = await fetch(url, options);
+    const response = await request.json();
+    return response as TVShowDetailsType;
+  } catch (error) {
+    console.error(error);
+    throw new Error("TV show details could not be loaded !");
+  }
+};
