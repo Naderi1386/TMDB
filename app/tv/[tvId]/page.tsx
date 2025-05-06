@@ -1,22 +1,26 @@
+import { getDetailsTVShow } from "@/app/_lib/services";
 
-interface ParamsType{
-    tvId:string
+interface ParamsType {
+  tvId: string;
 }
-interface PagePropsType{
-    params:Promise<ParamsType>
+interface PagePropsType {
+  params: Promise<ParamsType>;
 }
-export const generateMetadata=async(props:PagePropsType)=>{
-    const tvId=(await props.params).tvId
+export const generateMetadata = async (props: PagePropsType) => {
+  const tvId = (await props.params).tvId;
+  const tvDetails = await getDetailsTVShow(tvId);
+  return {
+    title: `TV ${tvDetails.name}`,
+  };
+};
 
-}
-
-const page =async (props:PagePropsType) => {
-    const tvId=await (await props.params).tvId
+const page = async (props: PagePropsType) => {
+  const tvId = await (await props.params).tvId;
   return (
     <div>
-        <h1 className="text-black">{tvId}</h1>
+      
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;
