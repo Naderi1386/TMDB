@@ -6,8 +6,8 @@ export interface FavoriteType {
   rating: number;
   type: "movie" | "tv";
   date: string;
-  runtime: number;
-  revenue: number;
+  runtime?: number;
+  revenue?: number;
   img: string;
   id: string;
 }
