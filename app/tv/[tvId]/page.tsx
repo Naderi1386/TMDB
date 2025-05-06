@@ -1,6 +1,7 @@
 import PopularContent from "@/app/_components/PopularContent";
 import TrendContent from "@/app/_components/TrendContent";
 import TrendingList from "@/app/_components/TrendingList";
+import TVDetails from "@/app/_components/TVDetails";
 import { getDetailsTVShow } from "@/app/_lib/services";
 
 interface ParamsType {
@@ -27,6 +28,7 @@ const page = async (props: PagePropsType) => {
   const time=await (await props.searchParams).time || "day"
   return (
     <div>
+        <TVDetails details={tvShowDetails} />
       <div className="mt-12 px-[10rem] ">
         <div>
           <TrendContent>
