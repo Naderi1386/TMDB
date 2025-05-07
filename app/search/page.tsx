@@ -17,7 +17,7 @@ const page = async ({ searchParams }: PagePropsType) => {
   const data = await searchMulti(query, page);
   
 
-  return <div className="py-8 px-[10rem]">
+  return <div className="py-2 px-[10rem]">
         <SearchList data={data.results} />
   </div>;
 };

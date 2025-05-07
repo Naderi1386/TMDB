@@ -7,9 +7,9 @@ interface SearchListPropsType {
 
 const SearchList = ({ data }: SearchListPropsType) => {
   return (
-    <ul>
-      {data.map((item) => (
-      <SearchItems item={item} key={item.id} />
+    <ul className="space-y-5">
+      {data.map((item,index) => (
+        <SearchItems index={index} item={item} key={item.id} />
       ))}
     </ul>
   );

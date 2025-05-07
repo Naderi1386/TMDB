@@ -330,12 +330,14 @@ export const getDetailsTVShow = async (id: string) => {
 
 export interface SearchItemType {
   id: 125089;
-  name: string;
+  name?: string;
+  title?: string;
   original_name: string;
   overview: string;
   poster_path: null;
   media_type: "tv" | "movie";
-  first_air_date: string;
+  first_air_date?: string;
+  release_date?: string;
   vote_average: number;
 }
 interface SearchDataType {
