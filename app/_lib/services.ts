@@ -329,11 +329,10 @@ export const getDetailsTVShow = async (id: string) => {
 };
 
 export interface SearchItemType {
-  
   id: 125089;
   name: string;
   original_name: string;
-  overview:string;
+  overview: string;
   poster_path: null;
   media_type: "tv" | "movie";
   first_air_date: string;
@@ -341,8 +340,8 @@ export interface SearchItemType {
 }
 interface SearchDataType {
   results: SearchItemType[];
-  page:number
-  total_pages:number;
+  page: number;
+  total_pages: number;
 }
 
 export const searchMulti = async (query: string, page: string) => {
@@ -356,8 +355,16 @@ export const searchMulti = async (query: string, page: string) => {
   };
   try {
     const request = await fetch(url, options);
-    const response = await request.json();
-    return response as SearchDataType;
+    const { page, results, total_pages } =
+      (await request.json()) as SearchDataType;
+    const response: SearchDataType = {
+      page,
+      total_pages,
+      results: results.filter(
+        (data) => data.media_type === "movie" || data.media_type === "tv"
+      ),
+    };
+    return response;
   } catch (error) {
     console.error(error);
     throw new Error("TV show details could not be loaded !");
