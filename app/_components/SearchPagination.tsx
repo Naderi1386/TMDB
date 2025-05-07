@@ -31,7 +31,7 @@ const SearchPagination = ({ page, totalPages }: SearchPaginationPropsType) => {
           «
         </button>
         <button className="join-item btn shadow-none bg-blue-950">
-          Page 22
+          Page {page}
         </button>
         <button
           onClick={() => handleClick("next")}
