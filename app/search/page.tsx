@@ -1,3 +1,5 @@
+import { searchMulti } from "../_lib/services";
+
 interface SearchParamsType {
   page: string;
   query: string;
@@ -11,7 +13,12 @@ const page = async ({ searchParams }: PagePropsType) => {
     (await searchParams).page || "1",
     (await searchParams).query,
   ]);
-  return <div>page</div>;
+  const data = await searchMulti(query, page);
+  
+
+  return <div className="py-8 px-[10rem]">
+
+  </div>;
 };
 
 export default page;
