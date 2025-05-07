@@ -1,3 +1,4 @@
+import SearchList from "../_components/SearchList";
 import { searchMulti } from "../_lib/services";
 
 interface SearchParamsType {
@@ -17,7 +18,7 @@ const page = async ({ searchParams }: PagePropsType) => {
   
 
   return <div className="py-8 px-[10rem]">
-
+        <SearchList data={data.results} />
   </div>;
 };
 
