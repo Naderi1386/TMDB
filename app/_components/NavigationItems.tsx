@@ -21,11 +21,11 @@ const NavigationItems = ({ title, list }: NavigationItemsPropsType) => {
       className="cursor-pointer relative"
     >
       <span className="text-sm font-bold">{title}</span>
+      <AnimatePresence mode="wait">
       {isOpen && (
-        <AnimatePresence mode="wait">
           <NavigationList list={list} handleClose={() => setIsOpen(false)} />
+        )}
         </AnimatePresence>
-      )}
     </div>
   );
 };

@@ -8,7 +8,7 @@ interface NavigationListPropsType {
 const NavigationList = ({ list, handleClose }: NavigationListPropsType) => {
   return (
     <motion.ul
-      transition={{ duration: "0.25", ease: "easeIn" }}
+      transition={{ duration: "0.15", ease: "easeIn" }}
       initial={{ opacity: 0, y:20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
