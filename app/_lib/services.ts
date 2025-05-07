@@ -328,6 +328,23 @@ export const getDetailsTVShow = async (id: string) => {
   }
 };
 
+export interface SearchItemType {
+  
+  id: 125089;
+  name: string;
+  original_name: string;
+  overview:string;
+  poster_path: null;
+  media_type: "tv" | "movie";
+  first_air_date: string;
+  vote_average: number;
+}
+interface SearchDataType {
+  results: SearchItemType[];
+  page:number
+  total_pages:number;
+}
+
 export const searchMulti = async (query: string, page: string) => {
   const url = `https://api.themoviedb.org/3/search/multi?query=${query}&include_adult=false&language=en-US&page=${page}`;
   const options = {
@@ -340,7 +357,7 @@ export const searchMulti = async (query: string, page: string) => {
   try {
     const request = await fetch(url, options);
     const response = await request.json();
-    return response
+    return response as SearchDataType;
   } catch (error) {
     console.error(error);
     throw new Error("TV show details could not be loaded !");
