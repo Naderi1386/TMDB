@@ -1,4 +1,5 @@
 import { SearchItemType } from "../_lib/services";
+import SearchItems from "./SearchItems";
 
 interface SearchListPropsType {
   data: SearchItemType[];
@@ -7,8 +8,8 @@ interface SearchListPropsType {
 const SearchList = ({ data }: SearchListPropsType) => {
   return (
     <ul>
-      {data.map((data) => (
-        <p key={data.id} className="text-black">{data.name}</p>
+      {data.map((item) => (
+      <SearchItems item={item} key={item.id} />
       ))}
     </ul>
   );
