@@ -1,15 +1,17 @@
 "use client";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 
 const HeaderInput = () => {
   const pathname = usePathname();
+  const router = useRouter();
   const [input, setInput] = useState("");
   if (pathname === "/about") return null;
   const onSubmit = () => {
     if (input) {
+      router.push(`/search?query=${input}&page=1`);
       setInput("");
     }
   };
