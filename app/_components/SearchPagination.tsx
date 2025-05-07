@@ -14,11 +14,11 @@ const SearchPagination = ({ page, totalPages }: SearchPaginationPropsType) => {
     const params = new URLSearchParams(searchParams);
     if (char === "next" && page !== totalPages) {
       params.set("page", String(page + 1));
-      replace(`${pathname}?${params}`);
     } else if (char === "previous" && page != 1) {
       params.set("page", String(page - 1));
-      replace(`${pathname}?${params}`);
     }
+      replace(`${pathname}?${params}`);
+
   };
   return (
     <div className="flex justify-center">
