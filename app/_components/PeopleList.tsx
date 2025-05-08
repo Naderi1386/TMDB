@@ -6,7 +6,7 @@ interface PeopleListPropsType {
 }
 const PeopleList = ({ people }: PeopleListPropsType) => {
   return (
-    <ul className="flex items-start justify-between gap-5 flex-wrap">
+    <ul className="flex items-stretch justify-between gap-5 flex-wrap ">
       {people.map((people) => (
         <PeopleItem key={people.id} peopleItem={people} />
       ))}

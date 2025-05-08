@@ -373,7 +373,8 @@ export const searchMulti = async (query: string, page: string) => {
   }
 };
 interface KnownForType {
-  title: "Like You Mean It";
+  title?: string;
+  name?: string;
 }
 
 export interface PeopleType {
