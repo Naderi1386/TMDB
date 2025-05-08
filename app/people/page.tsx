@@ -17,9 +17,11 @@ const page = async ({ searchParams }: PagePropsType) => {
   const page = (await searchParams).page || "1";
   const data = await getPopularPeoples(page);
   return (
-    <ul className="py-6 px-[10rem]">
+    <div className="py-6 px-[10rem]">
+      <h2 className="text-black mb-8 font-bold text-2xl">Popular People</h2>
+
       <PeopleList people={data.results} />
-    </ul>
+    </div>
   );
 };
 
