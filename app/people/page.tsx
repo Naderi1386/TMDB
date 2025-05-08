@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { getPopularPeoples } from "../_lib/services";
 import PeopleList from "../_components/PeopleList";
+import Pagination from "../_components/Pagination";
 
 interface SearchParamsType {
   page: string;
@@ -21,7 +22,7 @@ const page = async ({ searchParams }: PagePropsType) => {
       <h2 className="text-black mb-8 font-bold text-2xl">Popular People</h2>
 
       <PeopleList people={data.results} />
-      
+      <Pagination page={Number(page)} totalPages={data.total_pages} />
     </div>
   );
 };
