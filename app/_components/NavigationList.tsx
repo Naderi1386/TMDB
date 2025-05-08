@@ -12,7 +12,7 @@ const NavigationList = ({ list, handleClose }: NavigationListPropsType) => {
       initial={{ opacity: 0, y:20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
-      className="bg-white text-black rounded-md  w-[8.5rem] flex flex-col  absolute bottom-[-8rem] border border-solid border-stone-400 overflow-hidden z-[1000] "
+      className="bg-white text-black rounded-md   w-[8.5rem] flex flex-col  absolute bottom-[-8rem] border border-solid border-stone-400 overflow-hidden z-[1000] "
     >
       {list.map((item, index) => (
         <li

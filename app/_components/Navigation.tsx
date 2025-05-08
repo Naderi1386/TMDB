@@ -20,9 +20,7 @@ const Navigation = () => {
           { text: "Top Rated", href: "/tv?type=top_rated" },
         ]}
       />
-      <NavigationItems title="People" list={[
-        {href:'/people',text:"Popluar People"}
-      ]} />
+     
     </nav>
   );
 };

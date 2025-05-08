@@ -35,6 +35,9 @@ const HeaderProfile = async () => {
           <li className="p-[2px] transition-all duration-75 hover:bg-stone-300">
             <Link href={"/favorites"}>Favorites ♥️</Link>
           </li>
+          <li className="p-[2px] transition-all duration-75 hover:bg-stone-300">
+            <Link href={"/people"}>Popluar People 👤</Link>
+          </li>
         </ul>
       </div>
     </>
