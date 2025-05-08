@@ -6,7 +6,7 @@ interface SearchPaginationPropsType {
   page: number;
   totalPages: number;
 }
-const SearchPagination = ({ page, totalPages }: SearchPaginationPropsType) => {
+const Pagination = ({ page, totalPages }: SearchPaginationPropsType) => {
   const searchParams = useSearchParams();
   const { replace } = useRouter();
   const pathname = usePathname();
@@ -45,4 +45,4 @@ const SearchPagination = ({ page, totalPages }: SearchPaginationPropsType) => {
   );
 };
 
-export default SearchPagination;
+export default Pagination;

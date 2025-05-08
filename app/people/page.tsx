@@ -21,6 +21,7 @@ const page = async ({ searchParams }: PagePropsType) => {
       <h2 className="text-black mb-8 font-bold text-2xl">Popular People</h2>
 
       <PeopleList people={data.results} />
+      
     </div>
   );
 };

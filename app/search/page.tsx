@@ -1,5 +1,5 @@
 import SearchList from "../_components/SearchList";
-import SearchPagination from "../_components/SearchPagination";
+import Pagination from "../_components/Pagination";
 import { searchMulti } from "../_lib/services";
 
 interface SearchParamsType {
@@ -20,7 +20,7 @@ const page = async ({ searchParams }: PagePropsType) => {
   return (
     <div className="py-6 px-[10rem]">
       <SearchList data={data.results} />
-      <SearchPagination page={Number(page)} totalPages={data.total_pages} />
+      <Pagination page={Number(page)} totalPages={data.total_pages} />
     </div>
   );
 };
