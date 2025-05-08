@@ -9,7 +9,7 @@ const PeopleProfile = ({ src }: PeopleProfilePropsType) => {
   const [img, setImg] = useState(src);
 
   return (
-    <div className="relative w-full h-[300px] bg-black/20 rounded-[7px] overflow-hidden cursor-pointer">
+    <div className="relative w-full h-[300px] bg-black/20 rounded-t-[7px] overflow-hidden cursor-pointer">
       <Image
         onError={() => setImg("/images/no-person.png")}
         fill

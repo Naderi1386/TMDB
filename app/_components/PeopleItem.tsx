@@ -11,7 +11,7 @@ const PeopleItem = ({ peopleItem }: PeopleItemPropsType) => {
   return (
     <li className="w-[23.5%]">
       <PeopleProfile src={src} />
-      <div className="bg-white shadow-xl p-3">
+      <div className="bg-white border border-solid border-stone-300 shadow-xl p-3">
         <Link href={`/people/${id}`} className="text-black font-bold transition-all duration-150 hover:text-blue-500">{original_name}</Link>
         <ul className="flex items-center flex-wrap">
           {known_for.map((item, index) => (
