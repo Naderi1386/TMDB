@@ -373,6 +373,21 @@ export const searchMulti = async (query: string, page: string) => {
   }
 };
 
+export interface PeopleType {
+  gender: number;
+  id: number;
+  known_for_department: string;
+  name: string;
+  original_name: string;
+  popularity: number;
+  profile_path: string;
+  
+}
+interface PeopleDataType {
+  results: PeopleType[];
+  total_pages:number;
+}
+
 export const getPopularPeoples = async (page: string) => {
   const url = `https://api.themoviedb.org/3/person/popular?language=en-US&page=${page}`;
   const options = {
@@ -385,7 +400,7 @@ export const getPopularPeoples = async (page: string) => {
   try {
     const request = await fetch(url, options);
     const response = await request.json();
-    return response
+    return response as PeopleDataType
   } catch (error) {
     console.error(error);
     throw new Error("People could not be loaded !");
