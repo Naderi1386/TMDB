@@ -11,12 +11,12 @@ interface PopularItemsPropsType {
 const PopularItems = ({ item }: PopularItemsPropsType) => {
   const { id, first_air_date, poster_path, name, vote_average } = item;
   const src = `https://media.themoviedb.org/t/p/w500${poster_path}`;
-  const [img, setImg] = useState("/images/no-image.jpg");
+  const [img, setImg] = useState(src);
   const date = formatDate(first_air_date);
   return (
     <li title={name} className="min-w-[150px]  rounded-md  overflow-hidden ">
       <Link href={`tv/${id}`}>
-        <div className="w-full relative h-[250px]    rounded-t-md cursor-pointer">
+        <div className="w-full relative h-[250px] bg-black/20    rounded-t-md cursor-pointer">
           <Image
             quality={80}
             fill
@@ -24,9 +24,7 @@ const PopularItems = ({ item }: PopularItemsPropsType) => {
             alt={`Image-${name}`}
             src={img}
             onError={() => setImg("/images/no-image.jpg")}
-            onLoadingComplete={() => {
-              setImg(src);
-            }}
+        
             unoptimized
           />
         </div>
