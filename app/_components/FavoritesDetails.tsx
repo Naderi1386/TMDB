@@ -3,26 +3,21 @@
 import { useFavoritesStore } from "../_store/FavoritesStore";
 import FavoritesDetailsItem from "./FavoritesDetailsItem";
 import { SplitFromRightRegex } from "./ShortDetailsText";
-import Spinner from "./Spinner";
 
 const FavoritesDetails = () => {
   const favorites = useFavoritesStore((state) => state.favorites);
-  if (!favorites.length)
-    return (
-      <div className="pb-16">
-        <Spinner />
-      </div>
-    );
+  if (!favorites.length) return null;
+
   const ratings = favorites.map((fav) => fav.rating);
   const sumRatings = Number(
     ratings.reduce((acc, curr) => acc + curr, 0).toFixed(1)
   );
   const totalRuntimes = favorites
-    .map((fav) => fav.runtime ? fav.runtime : 0)
+    .map((fav) => (fav.runtime ? fav.runtime : 0))
     .reduce((acc, curr) => Number(acc) + Number(curr), 0);
-    console.log(totalRuntimes%60)
+  console.log(totalRuntimes % 60);
   const totalRevenue = favorites
-    .map((fav) => fav.revenue ? fav.revenue : 0)
+    .map((fav) => (fav.revenue ? fav.revenue : 0))
     .reduce((acc, curr) => Number(acc) + Number(curr), 0);
   const splitedRevenue = SplitFromRightRegex(Number(totalRevenue).toString());
 
