@@ -1,13 +1,19 @@
-import { Metadata } from "next"
+import { Metadata } from "next";
 
-export const metadata:Metadata={
-    title:'Popluar People'
+interface SearchParamsType {
+  page: string;
+}
+interface PagePropsType {
+  searchParams: Promise<SearchParamsType>;
 }
 
-const page = () => {
-  return (
-    <div>page</div>
-  )
-}
+export const metadata: Metadata = {
+  title: "Popluar People",
+};
 
-export default page
+const page = async ({ searchParams }: PagePropsType) => {
+  const page = (await searchParams).page || "1";
+  return <div>page</div>;
+};
+
+export default page;
