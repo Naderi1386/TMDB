@@ -372,6 +372,9 @@ export const searchMulti = async (query: string, page: string) => {
     throw new Error("TV show details could not be loaded !");
   }
 };
+interface KnownForType {
+  title: "Like You Mean It";
+}
 
 export interface PeopleType {
   gender: number;
@@ -381,11 +384,11 @@ export interface PeopleType {
   original_name: string;
   popularity: number;
   profile_path: string;
-  
+  known_for: KnownForType[];
 }
 interface PeopleDataType {
   results: PeopleType[];
-  total_pages:number;
+  total_pages: number;
 }
 
 export const getPopularPeoples = async (page: string) => {
@@ -400,7 +403,7 @@ export const getPopularPeoples = async (page: string) => {
   try {
     const request = await fetch(url, options);
     const response = await request.json();
-    return response as PeopleDataType
+    return response as PeopleDataType;
   } catch (error) {
     console.error(error);
     throw new Error("People could not be loaded !");
