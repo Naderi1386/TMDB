@@ -11,12 +11,12 @@ interface TrendMovieItemPropsType {
 const TrendMovieItem = ({ movie }: TrendMovieItemPropsType) => {
   const { title, poster_path, release_date, vote_average, id } = movie;
   const src = `https://image.tmdb.org/t/p/w500${poster_path}`;
-  const [img, setImg] = useState("/images/no-image.jpg");
+  const [img, setImg] = useState(src);
   const date = formatDate(release_date);
   return (
     <li title={title} className="min-w-[150px]  rounded-md  overflow-hidden ">
       <Link href={`movies/${id}`}>
-        <div className="w-full relative h-[250px]    cursor-pointer">
+        <div className="w-full relative h-[250px] bg-black/20    cursor-pointer">
           <Image
             quality={90}
             fill
@@ -26,9 +26,7 @@ const TrendMovieItem = ({ movie }: TrendMovieItemPropsType) => {
             onError={() =>
               setImg("/images/no-image.jpg")
             }
-            onLoadingComplete={()=>{
-              setImg(src);
-            }}
+          
             
            
             unoptimized
