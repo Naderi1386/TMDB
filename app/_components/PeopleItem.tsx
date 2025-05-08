@@ -9,7 +9,7 @@ const PeopleItem = ({ peopleItem }: PeopleItemPropsType) => {
   const { original_name, profile_path, known_for,id } = peopleItem;
   const src = `https://media.themoviedb.org/t/p/w470_and_h470_face${profile_path}`;
   return (
-    <li className="w-[25%]">
+    <li className="w-[23%]">
       <PeopleProfile src={src} />
       <div className="bg-white shadow-xl p-3">
         <Link href={`/people/${id}`} className="text-black font-bold transition-all duration-150 hover:text-blue-500">{original_name}</Link>
