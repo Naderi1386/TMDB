@@ -21,11 +21,12 @@ interface PagePropsType {
   searchParams: Promise<SearchParamsType>;
 }
 export async function generateMetadata(props: PagePropsType) {
+  
   const type =
-    (await props.searchParams).type.replace("_", " ").toLocaleUpperCase() ||
+    (await props.searchParams).type ||
     "popular";
   return {
-    title: `${type} TV Shows`,
+    title: `${type.replaceAll("_", " ").toLocaleUpperCase()} TV Shows`,
   };
 }
 const page = async (props: PagePropsType) => {
