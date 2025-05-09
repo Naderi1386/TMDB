@@ -411,10 +411,20 @@ export const getPopularPeoples = async (page: string) => {
   }
 };
 
+interface PersoneDetailsType {
+  also_known_as: string[];
+  biography: string;
+  birthday: string;
+  deathday: null;
+  gender: 2;
+  homepage: null;
+  id: 976;
+  name: string;
+  place_of_birth: string;
+  popularity: 27.1103;
+}
 
-
-
-export const getPersonDetails=async(id:string)=>{
+export const getPersonDetails = async (id: string) => {
   const url = `https://api.themoviedb.org/3/person/${id}?language=en-US`;
   const options = {
     method: "GET",
@@ -425,13 +435,10 @@ export const getPersonDetails=async(id:string)=>{
   };
   try {
     const request = await fetch(url, options);
-    const response=await request.json()
-    return response
-    
+    const response = await request.json();
+    return response as PersoneDetailsType;
   } catch (error) {
     console.error(error);
     throw new Error("People could not be loaded !");
   }
-  
-   
-}
+};
