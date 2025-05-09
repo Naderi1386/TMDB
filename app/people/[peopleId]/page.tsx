@@ -1,8 +1,12 @@
-
-const page = () => {
-  return (
-    <div>page</div>
-  )
+interface ParamsType {
+  peopleId: string;
+}
+interface PagePropsType {
+  params: Promise<ParamsType>;
 }
 
-export default page
+const page = ({ params }: PagePropsType) => {
+  return <div>page</div>;
+};
+
+export default page;
