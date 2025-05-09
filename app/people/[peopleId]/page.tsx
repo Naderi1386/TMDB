@@ -21,7 +21,7 @@ const page = async ({ params }: PagePropsType) => {
   const details = await getPersonDetails(peopleId);
   return (
     <div className="py-10 px-[10rem]">
-      <div className="flex items-start gap-5">
+      <div className="flex items-start gap-10">
         <div className="basis-[25%]">
             <PersonProfile />
         </div>
