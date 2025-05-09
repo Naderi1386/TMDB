@@ -10,7 +10,7 @@ const FavoritesList = ({ sort }: FavoritesListPropsType) => {
   const favorites = useFavoritesStore((state) => state.favorites);
   if (!favorites.length)
     return (
-      <EmptyContent topic="Favroites">You have no favroites ):</EmptyContent>
+      <EmptyContent href="/" topic="Home">You have no favroites ):</EmptyContent>
     );
   const favoritesItems =
     sort === "title"
