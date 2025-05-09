@@ -1,26 +1,21 @@
-"use client";
+import Link from "next/link";
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-interface DeleteSearchParamsBtnPropsType{
-    topic:string
+interface DeleteSearchParamsBtnPropsType {
+  topic: string;
+  href: string;
 }
 
-const DeleteSearchParamsBtn = ({topic}: DeleteSearchParamsBtnPropsType) => {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const type = searchParams.get("type") as string;
-  const { replace } = useRouter();
-
-  const handleClick = () => {
-    replace(`${pathname}?type=${type}`);
-  };
+const DeleteSearchParamsBtn = ({
+  topic,
+  href,
+}: DeleteSearchParamsBtnPropsType) => {
   return (
-    <button
-      onClick={handleClick}
+    <Link
+      href={href}
       className="cursor-pointer underline underline-offset-2 text-blue-950"
     >
       Go back to {topic}
-    </button>
+    </Link>
   );
 };
 
