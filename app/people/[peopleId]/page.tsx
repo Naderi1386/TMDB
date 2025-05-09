@@ -19,7 +19,6 @@ export async function generateMetadata(props: PagePropsType) {
 const page = async ({ params }: PagePropsType) => {
   const peopleId = (await params).peopleId;
   const details = await getPersonDetails(peopleId);
-  console.log(details)
   return (
     <div className="py-10 px-[10rem]">
       <div className="flex items-start gap-10">
