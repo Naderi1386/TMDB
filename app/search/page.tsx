@@ -19,7 +19,7 @@ const page = async ({ searchParams }: PagePropsType) => {
   const data = await searchMulti(query, page);
   if (!data.results.length)
     return (
-      <EmptyContent topic="last page">
+      <EmptyContent href="/" topic="Home">
         Could not find the content ):
       </EmptyContent>
     );
