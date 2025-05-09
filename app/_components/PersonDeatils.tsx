@@ -5,7 +5,8 @@ interface PersonDeatilsPropsType {
   biography: string;
 }
 const PersonDeatils = ({ name, biography }: PersonDeatilsPropsType) => {
-  const isLong = biography.length > 25;
+  const isLong = biography.split(" ").length > 25;
+  
 
   return (
     <div>

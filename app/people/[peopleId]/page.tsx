@@ -23,10 +23,10 @@ const page = async ({ params }: PagePropsType) => {
     <div className="py-10 px-[10rem]">
       <div className="flex items-start gap-10">
         <div className="basis-[25%]">
-            <PersonProfile />
+          <PersonProfile />
         </div>
         <div className="basis-[75%]">
-            <PersonDeatils name={details.name} biography={details.biography} />
+          <PersonDeatils name={details.name} biography={details.biography} />
         </div>
       </div>
     </div>
