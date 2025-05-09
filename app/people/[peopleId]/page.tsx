@@ -1,3 +1,4 @@
+import PersonProfile from "@/app/_components/PersonProfile";
 import { getPersonDetails } from "@/app/_lib/services";
 
 interface ParamsType {
@@ -20,8 +21,10 @@ const page = async ({ params }: PagePropsType) => {
   return (
     <div className="py-10 px-[10rem]">
       <div className="flex items-start gap-5">
-        <div className="basis-[30%]"></div>
-        <div className="basis-[70%]"></div>
+        <div className="basis-[25%]">
+            <PersonProfile />
+        </div>
+        <div className="basis-[75%]"></div>
       </div>
     </div>
   );
