@@ -412,6 +412,7 @@ export const getPopularPeoples = async (page: string) => {
 };
 
 interface PersoneDetailsType {
+  known_for_department:string;
   also_known_as: string[];
   biography: string;
   birthday: string;
