@@ -17,9 +17,14 @@ export async function generateMetadata(props: PagePropsType) {
 const page = async ({ params }: PagePropsType) => {
   const peopleId = (await params).peopleId;
   const details = await getPersonDetails(peopleId);
-  return <div>
-    
-  </div>;
+  return (
+    <div className="py-10 px-[10rem]">
+      <div className="flex items-start gap-5">
+        <div className="basis-[30%]"></div>
+        <div className="basis-[70%]"></div>
+      </div>
+    </div>
+  );
 };
 
 export default page;
