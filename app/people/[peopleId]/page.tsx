@@ -1,3 +1,4 @@
+import PersonDeatils from "@/app/_components/PersonDeatils";
 import PersonProfile from "@/app/_components/PersonProfile";
 import { getPersonDetails } from "@/app/_lib/services";
 
@@ -24,7 +25,9 @@ const page = async ({ params }: PagePropsType) => {
         <div className="basis-[25%]">
             <PersonProfile />
         </div>
-        <div className="basis-[75%]"></div>
+        <div className="basis-[75%]">
+            <PersonDeatils name={details.name} biography={details.biography} />
+        </div>
       </div>
     </div>
   );
