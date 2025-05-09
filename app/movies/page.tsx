@@ -22,10 +22,10 @@ interface PagePropsType {
 }
 export async function generateMetadata(props: PagePropsType) {
   const type =
-    (await props.searchParams).type.replace("_", " ").toLocaleUpperCase() ||
+    (await props.searchParams).type||
     "popular";
   return {
-    title: `${type} Movies`,
+    title: `${type.replaceAll("_", " ").toLocaleUpperCase()} Movies`,
   };
 }
 
