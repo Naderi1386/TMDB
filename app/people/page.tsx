@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import { getPopularPeoples } from "../_lib/services";
 import PeopleList from "../_components/PeopleList";
 import Pagination from "../_components/Pagination";
+import { Suspense } from "react";
+import Spinner from "../_components/Spinner";
 
 interface SearchParamsType {
   page: string;
@@ -20,9 +22,10 @@ const page = async ({ searchParams }: PagePropsType) => {
   return (
     <div className="py-6 px-[10rem]">
       <h2 className="text-black mb-8 font-bold text-2xl">Popular People</h2>
-
-      <PeopleList people={data.results} />
-      <Pagination page={Number(page)} totalPages={data.total_pages} />
+      <Suspense key={page} fallback={<Spinner />}>
+        <PeopleList people={data.results} key={page} />
+        <Pagination page={Number(page)} totalPages={data.total_pages} />
+      </Suspense>
     </div>
   );
 };
