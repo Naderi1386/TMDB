@@ -6,17 +6,20 @@ interface ParamsType {
 interface PagePropsType {
   params: Promise<ParamsType>;
 }
-export async function generateMetadata(props:PagePropsType){
-    const peopleId=(await props.params).peopleId
-    const {name}=await getPersonDetails(peopleId)
-    return {
-        title:`${name.toLocaleUpperCase()}-Details`
-    }
-
+export async function generateMetadata(props: PagePropsType) {
+  const peopleId = (await props.params).peopleId;
+  const { name } = await getPersonDetails(peopleId);
+  return {
+    title: `${name.toLocaleUpperCase()}-Details`,
+  };
 }
 
-const page = ({ params }: PagePropsType) => {
-  return <div>page</div>;
+const page = async ({ params }: PagePropsType) => {
+  const peopleId = (await params).peopleId;
+  const details = await getPersonDetails(peopleId);
+  return <div>
+    
+  </div>;
 };
 
 export default page;
