@@ -26,7 +26,7 @@ const PersonalInfo = ({ details }: PersonalInfoPropsType) => {
         title="Birthday
 
 "
-        text={`${formatDate(birthday)}(${showAge})`}
+        text={`${formatDate(birthday)} (${showAge})`}
       />
       <PersonalInfoItem
         title="Place of Birth
