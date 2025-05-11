@@ -33,6 +33,13 @@ const PersonalInfo = ({ details }: PersonalInfoPropsType) => {
 "
         text={place_of_birth}
       />
+      <PersonalInfoItem
+        title="Popularity
+
+
+"
+        text={Math.trunc(popularity)}
+      />
     </ul>
   );
 };
