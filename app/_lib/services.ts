@@ -417,12 +417,12 @@ export interface PersoneDetailsType {
   biography: string;
   birthday: string;
   deathday: null;
-  gender: 2;
+  gender: number;
   homepage: null;
-  id: 976;
+  id: number;
   name: string;
   place_of_birth: string;
-  popularity: 27.1103;
+  popularity: number;
 }
 
 export const getPersonDetails = async (id: string) => {
