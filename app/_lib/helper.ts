@@ -12,7 +12,7 @@ export function calculateAge(birthDate: string) {
   const birth = new Date(birthDate);
 
   if (isNaN(birth.getTime())) {
-    return "تاریخ وارد شده معتبر نیست";
+    return null;
   }
 
   let years: number = today.getFullYear() - birth.getFullYear();

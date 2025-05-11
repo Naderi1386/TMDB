@@ -1,4 +1,4 @@
-import { formatDate } from "../_lib/helper";
+import { calculateAge, formatDate } from "../_lib/helper";
 import { PersoneDetailsType } from "../_lib/services";
 import PersonalInfoItem from "./PersonalInfoItem";
 
@@ -8,6 +8,8 @@ interface PersonalInfoPropsType {
 const PersonalInfo = ({ details }: PersonalInfoPropsType) => {
   const { known_for_department, gender, birthday, place_of_birth, popularity } =
     details;
+  const age = calculateAge(birthday);
+  const showAge = age && `${age.years} years old`;
   return (
     <ul className="flex items-center justify-between gap-6">
       <PersonalInfoItem
@@ -24,7 +26,7 @@ const PersonalInfo = ({ details }: PersonalInfoPropsType) => {
         title="Birthday
 
 "
-        text={formatDate(birthday)}
+        text={`${formatDate(birthday)}(${showAge})`}
       />
       <PersonalInfoItem
         title="Place of Birth
