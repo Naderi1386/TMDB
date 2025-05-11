@@ -16,7 +16,7 @@ const PersonTextExpender = ({ text }: PersonTextExpenderPropsType) => {
           onClick={() => setIsShow(true)}
           className="btn btn-xs btn-dash btn-info"
         >
-          Show all
+          Read more
         </button>
       )}
     </>
