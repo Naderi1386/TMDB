@@ -1,3 +1,4 @@
+import PersonalInfo from "@/app/_components/PersonalInfo";
 import PersonDeatils from "@/app/_components/PersonDeatils";
 import PersonProfile from "@/app/_components/PersonProfile";
 import { getPersonDetails } from "@/app/_lib/services";
@@ -19,6 +20,7 @@ export async function generateMetadata(props: PagePropsType) {
 const page = async ({ params }: PagePropsType) => {
   const peopleId = (await params).peopleId;
   const details = await getPersonDetails(peopleId);
+
   return (
     <div className="py-10 px-[10rem]">
       <div className="flex items-start gap-10">
@@ -28,6 +30,9 @@ const page = async ({ params }: PagePropsType) => {
         <div className="basis-[75%]">
           <PersonDeatils name={details.name} biography={details.biography} />
         </div>
+      </div>
+      <div className="bg-white py-8 flex items-center justify-center gap-6">
+        <PersonalInfo details={details} />
       </div>
     </div>
   );

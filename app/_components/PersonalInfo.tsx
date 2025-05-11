@@ -1,8 +1,10 @@
+import { PersoneDetailsType } from "../_lib/services"
 
-const PersonalInfo = () => {
-  return (
-    <div>PersonalInfo</div>
-  )
+interface PersonalInfoPropsType{
+    details:PersoneDetailsType
 }
+const PersonalInfo = ({details}: PersonalInfoPropsType) => {
+  return <div></div>;
+};
 
 export default PersonalInfo
