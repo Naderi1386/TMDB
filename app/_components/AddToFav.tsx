@@ -1,6 +1,7 @@
 "use client";
 import { FaHeart } from "react-icons/fa";
 import { FavoriteType, useFavoritesStore } from "../_store/FavoritesStore";
+import toast from "react-hot-toast";
 
 interface AddToFavPropsType {
   item: FavoriteType;
@@ -13,8 +14,17 @@ const AddToFav = ({ item }: AddToFavPropsType) => {
     <button
       title={isAdded ? "Remove from favorites list" : "Add to favorites list"}
       onClick={() => {
-        if (!isAdded) addFav(item);
-        else removeFav(item.id);
+        if (!isAdded) {
+          addFav(item);
+          toast(`Good Job! ${item.title} Added to favorites`, {
+            icon: "✅",
+          });
+        } else {
+          removeFav(item.id);
+          toast(`${item.title} has removed from favorites`, {
+            icon: "❌",
+          });
+        }
       }}
       className="w-[2.8rem] h-[2.8rem] flex items-center justify-center rounded-[100%] bg-blue-950 cursor-pointer"
     >

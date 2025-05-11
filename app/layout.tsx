@@ -50,10 +50,11 @@ export default function RootLayout({ children }: RootLayoutPropsType) {
           containerStyle={{}}
           toastOptions={{
             className: "",
-            duration: 2500,
-            removeDelay: 1000,
+            duration: 1000,
+           
            
           }}
+          
         />
       </body>
     </html>
