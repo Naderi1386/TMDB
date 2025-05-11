@@ -31,7 +31,7 @@ const page = async ({ params }: PagePropsType) => {
           <PersonDeatils name={details.name} biography={details.biography} />
         </div>
       </div>
-      <div className="bg-white py-8 flex items-center justify-center gap-6">
+      <div className="bg-white py-8 ">
         <PersonalInfo details={details} />
       </div>
     </div>
