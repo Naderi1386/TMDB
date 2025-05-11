@@ -13,7 +13,7 @@ export async function generateMetadata(props: PagePropsType) {
   const peopleId = (await props.params).peopleId;
   const { name } = await getPersonDetails(peopleId);
   return {
-    title: `${name.toLocaleUpperCase()}-Details`,
+    title: `${name.toLocaleUpperCase()}`,
   };
 }
 
