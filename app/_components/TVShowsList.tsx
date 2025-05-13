@@ -38,7 +38,12 @@ const TVShowsList = async ({
       ? showsByGenre.sort((a, b) => a.vote_average - b.vote_average).reverse()
       : showsByGenre
     : showsByGenre;
-  if (shows.length === 0) return <EmptyContent topic="Shows">No TV Shows ):</EmptyContent>;
+  if (shows.length === 0)
+    return (
+      <EmptyContent href={`/tv?type=${type}`} topic="Shows">
+        No TV Shows ):
+      </EmptyContent>
+    );
   return (
     <>
       <ul className="flex flex-wrap justify-between items-stretch gap-6">
