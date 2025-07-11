@@ -1,8 +1,8 @@
-import { auth } from "@/auth"
+import { auth } from "@/auth";
 import Image from "next/image";
 
-const FavoritesProfile =async () => {
-    const session=await auth();
+const FavoritesProfile = async () => {
+  const session = await auth();
 
   return (
     <div className="flex items-center gap-3 mt-8">
@@ -18,6 +18,6 @@ const FavoritesProfile =async () => {
       </span>
     </div>
   );
-}
+};
 
-export default FavoritesProfile
+export default FavoritesProfile;
