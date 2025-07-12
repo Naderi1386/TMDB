@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { PeopleType } from "../_lib/services";
+import { PersoneDetailsType } from "../_lib/services";
 
 export interface FavoriteType {
   title: string;
@@ -17,8 +17,8 @@ interface StoreType {
   favorites: FavoriteType[];
   addFav: (fav: FavoriteType) => void;
   removeFav: (id: string) => void;
-  favoritesPeople: PeopleType[];
-  addFavPeople: (people: PeopleType) => void;
+  favoritesPeople: PersoneDetailsType[];
+  addFavPeople: (people: PersoneDetailsType) => void;
   removeFavPeople: (id: string) => void;
 }
 
