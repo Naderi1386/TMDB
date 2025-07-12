@@ -1,12 +1,10 @@
+import { PersoneDetailsType } from "../_lib/services";
+import AddToFavPeople from "./AddToFavPeople";
 import PersonTextExpender from "./PersonTextExpender";
 
-interface PersonDeatilsPropsType {
-  name: string;
-  biography: string;
-}
-const PersonDeatils = ({ name, biography }: PersonDeatilsPropsType) => {
+const PersonDeatils = ({ details }: { details: PersoneDetailsType }) => {
+  const { biography, name } = details;
   const isLong = biography.split(" ").length > 25;
-  
 
   return (
     <div>
@@ -14,9 +12,10 @@ const PersonDeatils = ({ name, biography }: PersonDeatilsPropsType) => {
       <span className="text-black font-semibold text-lg mb-2 block">
         Biography
       </span>
-      <p className="text-black text-sm font-light">
+      <p className="text-black text-sm font-light mb-10">
         {isLong ? <PersonTextExpender text={biography} /> : biography}
       </p>
+      <AddToFavPeople persone={details} />
     </div>
   );
 };

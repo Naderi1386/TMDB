@@ -29,7 +29,7 @@ const page = async ({ params }: PagePropsType) => {
             <PersonProfile />
           </div>
           <div className="basis-[75%]">
-            <PersonDeatils name={details.name} biography={details.biography} />
+            <PersonDeatils details={details} />
           </div>
         </div>
       </div>
